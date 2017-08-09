@@ -7,13 +7,13 @@
   DTS:CreatorName="DC"
   DTS:DTSID="{A3BF624B-71B8-49CE-A835-9A4DEE7F3B5A}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="12.0.4100.1"
+  DTS:LastModifiedProductVersion="14.0.0600.250"
   DTS:LocaleID="1033"
   DTS:ObjectName="Master_Streams"
   DTS:PackageType="5"
-  DTS:VersionBuild="264"
+  DTS:VersionBuild="266"
   DTS:VersionComments="20110907"
-  DTS:VersionGUID="{11780A47-90E0-48AD-A73D-0C2DA0767F2F}">
+  DTS:VersionGUID="{C6E240A8-2B94-4909-8E3B-4EEB4C1F3276}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -147,7 +147,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="ParentVersion">
       <DTS:VariableValue
-        DTS:DataType="8">1.0.264.20110907</DTS:VariableValue>
+        DTS:DataType="8">1.0.266.20110907</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -380,7 +380,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{EDC308B5-6A9E-4516-9748-1B1B58BBD400}"
-          SQLTask:SqlStatementSource="etl.Get_SSISApplicationBatches ?"
+          SQLTask:SqlStatementSource="cfg.Get_SSISApplicationBatches ?"
           SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -520,7 +520,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{EDC308B5-6A9E-4516-9748-1B1B58BBD400}"
-              SQLTask:SqlStatementSource="etl.Get_SSISNoOfStreamsForBatch ?,?"
+              SQLTask:SqlStatementSource="cfg.Get_SSISNoOfStreamsForBatch ?,?"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="NoOfStreamsForBatch"
@@ -1177,7 +1177,7 @@
     design-time-name="Package.EventHandlers[OnError]">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="179,42"
           Id="Package.EventHandlers[OnError]\Log Application Error"
@@ -1209,7 +1209,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1231,7 +1233,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
-  DTS:ObjectName="BPS"
+  DTS:ObjectName="Source"
   DTS:DTSID="{53AB5168-C30E-4D25-A8E0-9BBD2A14BE9D}"
   DTS:CreationName="OLEDB">
   <DTS:ObjectData>

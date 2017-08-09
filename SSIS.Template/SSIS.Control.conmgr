@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
-  DTS:ObjectName="Satsuma_Control"
+  DTS:ObjectName="SSIS Control"
   DTS:DTSID="{EDC308B5-6A9E-4516-9748-1B1B58BBD400}"
   DTS:CreationName="OLEDB">
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="Data Source=localhost;Initial Catalog=Satsuma_Control;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Packet Size=32767;" />
+      DTS:ConnectionString="Data Source=localhost;Initial Catalog=SSIS.Control;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Packet Size=32767;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>

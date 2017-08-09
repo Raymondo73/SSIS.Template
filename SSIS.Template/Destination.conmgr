@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
-  DTS:ObjectName="SatsumaBPS_Staging"
+  DTS:ObjectName="Destination"
   DTS:DTSID="{68B4D0F8-4E1F-4BD5-8F19-A73DDD81ADF3}"
   DTS:CreationName="OLEDB">
   <DTS:ObjectData>

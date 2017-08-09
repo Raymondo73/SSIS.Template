@@ -7,13 +7,13 @@
   DTS:CreatorName="DC"
   DTS:DTSID="{7DFCCDB6-6FF2-4308-A22D-1CE0D7B56DBB}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="12.0.4100.1"
+  DTS:LastModifiedProductVersion="14.0.0600.250"
   DTS:LocaleID="1033"
   DTS:ObjectName="Master_ProjectPackage"
   DTS:PackageType="5"
-  DTS:VersionBuild="283"
+  DTS:VersionBuild="284"
   DTS:VersionComments="20110907"
-  DTS:VersionGUID="{8CFB092B-E00E-415A-B1E6-1BE8A05235BF}">
+  DTS:VersionGUID="{E507BC49-0B94-40A4-9623-90B0E319C701}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -341,7 +341,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{EDC308B5-6A9E-4516-9748-1B1B58BBD400}"
-          SQLTask:SqlStatementSource="etl.Get_SSISPackagesByStream ?,?,?,?"
+          SQLTask:SqlStatementSource="cfg.Get_SSISPackagesByStream ?,?,?,?"
           SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -920,39 +920,25 @@
           Id="Package\Loop through all packages, logging all related events\Log Start of Child Package"
           TopLeft="115.5,5.5" />
         <EdgeLayout
-          Id="Package\Loop through all packages, logging all related events.PrecedenceConstraints[Constraint 3]"
-          TopLeft="249.5,122.5">
+          Id="Package\Loop through all packages, logging all related events.PrecedenceConstraints[Constraint]"
+          TopLeft="218.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="65.5,33"
+              EndConnector="0,33"
               Start="0,0"
-              End="65.5,25.5">
+              End="0,25.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,9.36448598130841" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,9.36448598130841"
-                    Point2="0,13.3644859813084"
-                    Point3="4,13.3644859813084" />
-                  <mssgle:LineSegment
-                    End="61.5,13.3644859813084" />
-                  <mssgle:CubicBezierSegment
-                    Point1="61.5,13.3644859813084"
-                    Point2="65.5,13.3644859813084"
-                    Point3="65.5,17.3644859813084" />
-                  <mssgle:LineSegment
-                    End="65.5,25.5" />
+                    End="0,25.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="17.50865234375,18.3644859813084,30.4826953125,9.7490234375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -990,25 +976,39 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Loop through all packages, logging all related events.PrecedenceConstraints[Constraint]"
-          TopLeft="218.5,47.5">
+          Id="Package\Loop through all packages, logging all related events.PrecedenceConstraints[Constraint 3]"
+          TopLeft="249.5,122.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,33"
+              EndConnector="65.5,33"
               Start="0,0"
-              End="0,25.5">
+              End="65.5,25.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.5" />
+                    End="0,9.36448598130841" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.36448598130841"
+                    Point2="0,13.3644859813084"
+                    Point3="4,13.3644859813084" />
+                  <mssgle:LineSegment
+                    End="61.5,13.3644859813084" />
+                  <mssgle:CubicBezierSegment
+                    Point1="61.5,13.3644859813084"
+                    Point2="65.5,13.3644859813084"
+                    Point3="65.5,17.3644859813084" />
+                  <mssgle:LineSegment
+                    End="65.5,25.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="17.50865234375,18.3644859813084,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
@@ -1165,7 +1165,7 @@
     design-time-name="Package.EventHandlers[OnError]">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="125,42"
           Id="Package.EventHandlers[OnError]\Log Error"
@@ -1193,7 +1193,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
