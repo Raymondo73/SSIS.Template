@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>SSIS.Control</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{c010b9ab-3476-482a-b74a-e34da3f206a1}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>SSIS.Control</RootNamespace>
+    <AssemblyName>SSIS.Control</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
+    <DefaultSchema>cfg</DefaultSchema>
+    <Recovery>SIMPLE</Recovery>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <SqlTargetName>SSIS</SqlTargetName>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="_scripts" />
+    <Folder Include="cfg\" />
+    <Folder Include="cfg\Tables\" />
+    <Folder Include="cfg\Stored Procedures\" />
+    <Folder Include="audit" />
+    <Folder Include="audit\Tables" />
+    <Folder Include="audit\Stored Procedures" />
+    <Folder Include="Security" />
+    <Folder Include="_publish" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_scripts\_SourceTables.sql" />
+    <PostDeploy Include="_scripts\PostDeploymentController.sql" />
+    <Build Include="cfg\Tables\ApplicationProjects.sql" />
+    <Build Include="cfg\Tables\Applications.sql" />
+    <Build Include="cfg\Tables\Packages.sql" />
+    <Build Include="cfg\Tables\ProjectPackages.sql" />
+    <Build Include="cfg\Tables\Projects.sql" />
+    <Build Include="cfg\Stored Procedures\Add_SSISApplication.sql" />
+    <Build Include="cfg\Stored Procedures\Add_SSISApplicationProject.sql" />
+    <Build Include="cfg\Stored Procedures\Add_SSISPackage.sql" />
+    <Build Include="cfg\Stored Procedures\Add_SSISProject.sql" />
+    <Build Include="cfg\Stored Procedures\Add_SSISProjectPackage.sql" />
+    <Build Include="cfg\Stored Procedures\Get_SSISApplication.sql" />
+    <Build Include="cfg\Stored Procedures\Get_SSISNoOfStreamsForBatch.sql" />
+    <Build Include="cfg\Stored Procedures\Get_SSISPackagesByStream.sql" />
+    <Build Include="audit\Stored Procedures\Get_ExecutionErrors.sql" />
+    <Build Include="audit\Stored Procedures\Log_ApplicationFailure.sql" />
+    <Build Include="audit\Stored Procedures\Log_ApplicationSuccess.sql" />
+    <Build Include="audit\Stored Procedures\Log_Error.sql" />
+    <Build Include="audit\Stored Procedures\Log_Event.sql" />
+    <Build Include="audit\Stored Procedures\Log_PackageFailure.sql" />
+    <Build Include="audit\Stored Procedures\Log_PackageSuccess.sql" />
+    <Build Include="audit\Stored Procedures\Log_StartOfApplication.sql" />
+    <Build Include="audit\Stored Procedures\Log_StartOfPackage.sql" />
+    <Build Include="audit\Tables\SSISAppInstance.sql" />
+    <Build Include="audit\Tables\SSISErrors.sql" />
+    <Build Include="audit\Tables\SSISEvents.sql" />
+    <Build Include="audit\Tables\SSISLookupFailures.sql" />
+    <Build Include="audit\Tables\SSISPkgInstance.sql" />
+    <Build Include="Security\cfg.sql" />
+    <Build Include="Security\audit.sql" />
+    <None Include="_publish\localhost.publish.xml" />
+    <None Include="_scripts\_ChangeTrackingTableRows.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="cfg\Tables\TableChangeTracking.sql" />
+    <None Include="_scripts\_SatsumaStagingBPS.sql">
+      <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
+    </None>
+    <Build Include="cfg\Stored Procedures\Get_ChangeTrackingID.sql" />
+    <Build Include="cfg\Stored Procedures\Get_SSISApplicationBatches.sql" />
+    <Build Include="cfg\Stored Procedures\Purge_SSISFrameworkLogs.sql" />
+    <Build Include="cfg\Tables\SourceTables.sql" />
+    <Build Include="cfg\Stored Procedures\Update_ChangeTrackingID.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\120\SqlSchemas\master.dacpac">
+      <HintPath>$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\120\SqlSchemas\master.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseVariableLiteralValue>master</DatabaseVariableLiteralValue>
+    </ArtifactReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+</Project>

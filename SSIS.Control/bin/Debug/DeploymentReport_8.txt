@@ -1,0 +1,57 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [cfg] (Schema)
+       [log] (Schema)
+       [cfg].[Projects] (Table)
+       [cfg].[ProjectPackages] (Table)
+       [cfg].[Packages] (Table)
+       [cfg].[Applications] (Table)
+       [cfg].[ApplicationProjects] (Table)
+       [cfg].[SourceTables] (Table)
+       [cfg].[TableChangeTracking] (Table)
+       [log].[SSISPkgInstance] (Table)
+       [log].[SSISLookupFailures] (Table)
+       [log].[SSISEvents] (Table)
+       [log].[SSISErrors] (Table)
+       [log].[SSISAppInstance] (Table)
+       [cfg].[DF_LoadTolerancePC] (Default Constraint)
+       Default Constraint: unnamed constraint on [cfg].[SourceTables] (Default Constraint)
+       Default Constraint: unnamed constraint on [cfg].[TableChangeTracking] (Default Constraint)
+       [cfg].[FK_ProjectPackages_Packages] (Foreign Key)
+       [cfg].[FK_ProjectPackages_Projects] (Foreign Key)
+       [cfg].[FK_ApplicationProjects_Applications] (Foreign Key)
+       [cfg].[FK_ApplicationProjects_Projects] (Foreign Key)
+       [cfg].[FK_TableChangeTracking_Package] (Foreign Key)
+       [log].[FK_logSSISAppInstance_cfgApplication_ApplicationID] (Foreign Key)
+       [cfg].[Get_SSISPackagesByStream] (Procedure)
+       [cfg].[Get_SSISNoOfStreamsForBatch] (Procedure)
+       [cfg].[Get_SSISApplication] (Procedure)
+       [cfg].[AddSSISProjectPackage] (Procedure)
+       [cfg].[AddSSISProject] (Procedure)
+       [cfg].[Add_SSISPackage] (Procedure)
+       [cfg].[Add_SSISApplicationProject] (Procedure)
+       [cfg].[Add_SSISApplication] (Procedure)
+       [cfg].[Get_SSISApplicationBatches] (Procedure)
+       [cfg].[Get_ChangeTrackingID] (Procedure)
+       [log].[LogStartOfPackage] (Procedure)
+       [log].[LogStartOfApplication] (Procedure)
+       [log].[LogPackageSuccess] (Procedure)
+       [log].[LogPackageFailure] (Procedure)
+       [log].[LogEvent] (Procedure)
+       [log].[LogError] (Procedure)
+       [log].[LogApplicationSuccess] (Procedure)
+       [log].[LogApplicationFailure] (Procedure)
+       [log].[GetExecutionErrors] (Procedure)
+       [dbo].[Purge_SSISFrameworkLogs] (Procedure)
+
+** Supporting actions

@@ -1,0 +1,6 @@
+D:\Repo\SSIS ETL Template\SSIS.Control\bin\Debug\master.dacpac
+D:\Repo\SSIS ETL Template\SSIS.Control\bin\Debug\SSIS.dacpac
+D:\Repo\SSIS ETL Template\SSIS.Control\bin\Debug\SSIS.Control.dll
+D:\Repo\SSIS ETL Template\SSIS.Control\bin\Debug\SSIS.Control.pdb
+D:\Repo\SSIS ETL Template\SSIS.Control\obj\Debug\SSIS.Control.dll
+D:\Repo\SSIS ETL Template\SSIS.Control\obj\Debug\SSIS.Control.pdb
