@@ -7,12 +7,12 @@
   DTS:CreatorName="HO\bettsr1"
   DTS:DTSID="{C1E2F164-69D9-4BEA-AE03-9C97648B448D}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="12.0.4100.1"
+  DTS:LastModifiedProductVersion="14.0.0600.250"
   DTS:LocaleID="2057"
   DTS:ObjectName="EDA_TENANT1 ADDRESS"
   DTS:PackageType="5"
-  DTS:VersionBuild="24"
-  DTS:VersionGUID="{B7CBA29A-6E8C-48BB-84A6-9CC65BE863DA}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{564E5D55-CC5F-421B-ABBE-531837937A87}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -138,13 +138,12 @@
       DTS:CreationName=""
       DTS:DTSID="{3443B68C-1DAD-4A40-BE8B-B4E9F02FDA55}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;EXEC etl.Update_ChangeTrackingID '&quot; + @[System::PackageName]  + &quot;.dtsx', &quot; +  (DT_STR, 50, 1252) @[User::LastLoadedChangeTrackingID]"
+      DTS:Expression="&quot;EXEC etl.Update_ChangeTrackingID '&quot; + @[System::PackageName]  + &quot;.dtsx', &quot; +  (DT_STR, 50, 1252) @[User::LastChangeTrackingID]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="UpdateChangeTrackingSQL">
       <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
+        DTS:DataType="8">EXEC etl.Update_ChangeTrackingID 'EDA_TENANT1 ADDRESS.dtsx', -1</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -197,7 +196,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -224,7 +223,7 @@
                     <connection
                       refId="Package\EDATENANT1_ADDRESS\Land Changed Data\BPS EDATENANT1 ADDRESS.Connections[OleDbConnection]"
                       connectionManagerID="{53AB5168-C30E-4D25-A8E0-9BBD2A14BE9D}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[BPS]"
+                      connectionManagerRefId="Project.ConnectionManagers[Source]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -277,12 +276,12 @@
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
+                      name="OpenRowsetVariable">$Package::LandingTable</property>
                     <property
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -295,7 +294,7 @@
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">3</property>
+                      typeConverter="AccessMode">4</property>
                     <property
                       dataType="System.Boolean"
                       description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -317,7 +316,7 @@
                     <connection
                       refId="Package\EDATENANT1_ADDRESS\Land Changed Data\SATSUMA Landing ADDRESS.Connections[OleDbConnection]"
                       connectionManagerID="{53AB5168-C30E-4D25-A8E0-9BBD2A14BE9D}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[BPS]"
+                      connectionManagerRefId="Project.ConnectionManagers[Source]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -530,21 +529,21 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="217,42"
-          Id="Package\Get Last Change Tracking ID"
-          TopLeft="98.5,62" />
+          Size="174,42"
+          Id="Package\EDATENANT1_ADDRESS\Land Changed Data"
+          TopLeft="23.5,79.5" />
         <NodeLayout
-          Size="233,42"
-          Id="Package\Get Current Change Tracking ID"
-          TopLeft="92,144" />
+          Size="180,42"
+          Id="Package\EDATENANT1_ADDRESS\Merge Changed Data"
+          TopLeft="22,151" />
         <NodeLayout
           Size="192,42"
           Id="Package\EDATENANT1_ADDRESS\Truncate Landing Table"
           TopLeft="14,7" />
         <NodeLayout
-          Size="174,42"
-          Id="Package\EDATENANT1_ADDRESS\Land Changed Data"
-          TopLeft="23.5,79.5" />
+          Size="215,42"
+          Id="Package\EDATENANT1_ADDRESS\Update  Change Tracking ID"
+          TopLeft="2,227.5" />
         <EdgeLayout
           Id="Package\EDATENANT1_ADDRESS.PrecedenceConstraints[Constraint]"
           TopLeft="110.25,49">
@@ -567,10 +566,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="180,42"
-          Id="Package\EDATENANT1_ADDRESS\Merge Changed Data"
-          TopLeft="22,151" />
         <EdgeLayout
           Id="Package\EDATENANT1_ADDRESS.PrecedenceConstraints[Constraint 1]"
           TopLeft="111.25,121.5">
@@ -593,10 +588,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="215,42"
-          Id="Package\EDATENANT1_ADDRESS\Update  Change Tracking ID"
-          TopLeft="2,227.5" />
         <EdgeLayout
           Id="Package\EDATENANT1_ADDRESS.PrecedenceConstraints[Constraint 2]"
           TopLeft="110.75,193">
@@ -622,10 +613,18 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="220,281"
+          PanelSize="220,282"
           Size="220,325"
           Id="Package\EDATENANT1_ADDRESS"
           TopLeft="94,223" />
+        <NodeLayout
+          Size="233,42"
+          Id="Package\Get Current Change Tracking ID"
+          TopLeft="92,144" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\Get Last Change Tracking ID"
+          TopLeft="98.5,62" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="206.25,186">
@@ -673,7 +672,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
-          Text="Obtain last known Change Tracking ID from Config&#xD;&#xA;i.e. last load&#xD;&#xA;&#xD;&#xA;Get Table Change Tracking ID&#xD;&#xA;&#xD;&#xA;Only perform actions if TableID &gt; LastID"
+          Text="Obtain last known Change Tracking ID from Config&#xA;i.e. last load&#xA;&#xA;Get Table Change Tracking ID&#xA;&#xA;Only perform actions if TableID &gt; LastID"
           ParentId="Package"
           FontInfo="{assembly:Null}"
           Size="301,122"
@@ -721,6 +720,14 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\EDATENANT1_ADDRESS\Land Changed Data\BPS EDATENANT1 ADDRESS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\EDATENANT1_ADDRESS\Land Changed Data\SATSUMA Landing ADDRESS">
     <Properties>
       <Property>
@@ -730,14 +737,6 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\EDATENANT1_ADDRESS\Land Changed Data\BPS EDATENANT1 ADDRESS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
