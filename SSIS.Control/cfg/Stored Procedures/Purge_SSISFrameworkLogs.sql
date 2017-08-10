@@ -22,27 +22,27 @@ BEGIN
 		SELECT @RowsAffected = 0;
 
 		DELETE	TOP(@BlockSize) 
-		FROM	[log].[SSISEvents]
+		FROM	[audit].[SSISEvents]
 		WHERE	[EventDateTime] < @CutOff;
 		SELECT	@RowsAffected = @RowsAffected + @@ROWCOUNT;
 
 		DELETE	TOP(@BlockSize) 
-		FROM	[log].[SSISErrors]
+		FROM	[audit].[SSISErrors]
 		WHERE	[ErrorDateTime] < @CutOff;
 		SELECT	@RowsAffected = @RowsAffected + @@ROWCOUNT;
 
 		DELETE	TOP(@BlockSize) 
-		FROM	[log].[SSISLookupFailures]
+		FROM	[audit].[SSISLookupFailures]
 		WHERE	[DateOccured]  < @CutOff;
 		SELECT	@RowsAffected = @RowsAffected + @@ROWCOUNT;
 
 		DELETE	TOP(@BlockSize) 
-		FROM	[log].[SSISPkgInstance]
+		FROM	[audit].[SSISPkgInstance]
 		WHERE	EndDateTime < @CutOff;
 		SELECT	@RowsAffected = @RowsAffected + @@ROWCOUNT;
 
 		DELETE	TOP(@BlockSize) 
-		FROM	[log].[SSISAppInstance]
+		FROM	[audit].[SSISAppInstance]
 		WHERE	EndDateTime < @CutOff;
 		SELECT	@RowsAffected = @RowsAffected + @@ROWCOUNT;
 
