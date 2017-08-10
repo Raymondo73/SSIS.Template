@@ -1,9 +1,9 @@
 ﻿WITH sourcetables AS 
 (
 --StagingDb related tables (being added to StagingDb and will provide the link to JNT data)
-SELECT 'sdtStaging' AS DatabaseName, 'online' AS SchemaName, 'tblApplication' AS TableName 
+SELECT 'BPS' AS DatabaseName, 'EDA_TENANT1' AS SchemaName, 'ADDRESS' AS TableName 
 UNION
-SELECT 'sdtStaging' AS DatabaseName, 'online' AS SchemaName, 'tblApplicationCustomer' AS TableName
+SELECT 'BPS' AS DatabaseName, 'EDA_TENANT1' AS SchemaName, 'EDA_TENANT1.BSB_7_1_SPA' AS TableName
 )
 MERGE	cfg.SourceTables	AS target
 USING	sourcetables		AS Source	ON	Target.Databasename = source.databasename
