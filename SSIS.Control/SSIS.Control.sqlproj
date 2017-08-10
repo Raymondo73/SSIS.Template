@@ -108,7 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="cfg\Tables\TableChangeTracking.sql" />
-    <None Include="_scripts\_SatsumaStagingBPS.sql">
+    <None Include="_scripts\_ChildPackagesToCreate.sql">
       <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
     </None>
     <Build Include="cfg\Stored Procedures\Get_ChangeTrackingID.sql" />

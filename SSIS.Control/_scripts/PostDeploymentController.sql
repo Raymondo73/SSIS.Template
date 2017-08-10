@@ -10,6 +10,6 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 
-:r .\_SatsumaStagingBPS.sql
+:r .\_ChildPackagesToCreate.sql
 :r .\_ChangeTrackingTableRows.sql
 :r .\_SourceTables.sql
