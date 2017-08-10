@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[Purge_SSISFrameworkLogs]
+﻿CREATE PROCEDURE [cfg].[Purge_SSISFrameworkLogs]
 (
 	@DaysToKeep INT = 30
 ,	@BlockSize	INT = 500000
