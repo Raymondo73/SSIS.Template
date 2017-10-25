@@ -7,5 +7,7 @@
 	[DestinationTable] [varchar](255) NULL,
 	[SelectProcedure] [varchar](255) NULL,
 	[MergeProcedure] [varchar](255) NULL,
+    [DefaultBufferMaxRows] INT NULL DEFAULT(10000), 
+    [DefaultBufferSize] INT NULL DEFAULT(10485760), 
     CONSTRAINT [PK_Packages] PRIMARY KEY CLUSTERED ([PackageID] ASC)
 );

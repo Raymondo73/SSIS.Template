@@ -116,6 +116,7 @@
     <Build Include="cfg\Stored Procedures\Purge_SSISFrameworkLogs.sql" />
     <Build Include="cfg\Tables\SourceTables.sql" />
     <Build Include="cfg\Stored Procedures\Update_ChangeTrackingID.sql" />
+    <Build Include="cfg\Tables\DBConnection.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\120\SqlSchemas\master.dacpac">
@@ -132,5 +133,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="_scripts\_CreateAppAndProject.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_scripts\_DBConnections.sql" />
   </ItemGroup>
 </Project>

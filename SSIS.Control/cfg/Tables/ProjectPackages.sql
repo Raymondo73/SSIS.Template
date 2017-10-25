@@ -6,6 +6,7 @@
     [ExecType1]        CHAR (1) NULL,
     [ExecType2]        CHAR (2) NULL,
     [ExecutionStream]  INT      NULL,
+	[BIMLBatch]		   BIT		NOT NULL DEFAULT(0),
     [Disabled]         BIT      NULL,
     CONSTRAINT [PK_ProjPackages] PRIMARY KEY CLUSTERED ([ProjectPackageID] ASC),
     CONSTRAINT [FK_ProjectPackages_Packages] FOREIGN KEY ([PackageID]) REFERENCES [cfg].[Packages] ([PackageID]),

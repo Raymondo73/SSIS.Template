@@ -5,6 +5,8 @@
 ,	@DestinationTable	VARCHAR (255)
 ,	@SelectProcedure	VARCHAR (255)
 ,	@MergeProcedure		VARCHAR (255)
+,	@MaxRows			INT				= 10000
+,	@BufferSize			INT				= 10485760
 
 AS
 
@@ -22,6 +24,8 @@ BEGIN TRY
 		,		@DestinationTable	AS DestinationTable
 		,		@SelectProcedure	AS SelectProcedure
 		,		@MergeProcedure		AS MergeProcedure
+		,		@MaxRows			AS MaxRows
+		,		@BufferSize			AS BufferSize
 	)
 	INSERT INTO	cfg.Packages
 					(	PackageName
@@ -30,6 +34,8 @@ BEGIN TRY
 					,	DestinationTable
 					,	SelectProcedure
 					,	MergeProcedure
+					,	DefaultBufferMaxRows
+					,	DefaultBufferSize
 					)
 	SELECT		p1.PackageName
 	,			p1.SourceTable
@@ -37,6 +43,8 @@ BEGIN TRY
 	,			p1.DestinationTable
 	,			p1.SelectProcedure
 	,			p1.MergeProcedure
+	,			p1.MaxRows
+	,			p1.BufferSize
 	FROM		Package			p1
 	LEFT JOIN	cfg.Packages	p2	ON p1.PackageName = p2.PackageName
 	WHERE		p2.PackageID IS NULL;
@@ -51,21 +59,25 @@ BEGIN TRY
 		,		@DestinationTable	AS DestinationTable
 		,		@SelectProcedure	AS SelectProcedure
 		,		@MergeProcedure		AS MergeProcedure
+		,		@MaxRows			AS MaxRows
+		,		@BufferSize			AS BufferSize
 	)
 	UPDATE	p1
-	SET		PackageName			= p2.PackageName
-	,		SourceTable			= p2.SourceTable
-	,		LandingTable		= p2.LandingTable
-	,		DestinationTable	= p2.DestinationTable
-	,		SelectProcedure		= p2.SelectProcedure
-	,		MergeProcedure		= p2.MergeProcedure
+	SET		PackageName				= p2.PackageName
+	,		SourceTable				= p2.SourceTable
+	,		LandingTable			= p2.LandingTable
+	,		DestinationTable		= p2.DestinationTable
+	,		SelectProcedure			= p2.SelectProcedure
+	,		MergeProcedure			= p2.MergeProcedure
+	,		DefaultBufferMaxRows	= p2.MaxRows
+	,		DefaultBufferSize		= p2.BufferSize
 	FROM	cfg.Packages	p1
 	JOIN	Package			p2	ON p1.PackageName = p2.PackageName;
 
 	-- Return
 	SELECT		@PkgId = PackageID
 	FROM		cfg.Packages
-	WHERE		PackageName		= @PackageName;
+	WHERE		PackageName	= @PackageName;
 	
 	RETURN @PkgId;
 

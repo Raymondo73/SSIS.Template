@@ -6,12 +6,13 @@
 ,	@ExecutionType2		CHAR(1) = 'I'
 ,	@ExecutionStream	INT		= 1
 ,	@Disabled			BIT		= 0
+,	@BIMLBatch			BIT		= 0
 AS
 
 BEGIN TRY
 	SET NOCOUNT ON;
 
-		MERGE	cfg.ProjectPackages	Dest
+	MERGE	cfg.ProjectPackages	Dest
 	USING	(	SELECT	@ProjectID			AS ProjectID
 				,		@PackageID			AS PackageID
 				,		@ExecutionOrder		AS ExecutionOrder
@@ -19,6 +20,7 @@ BEGIN TRY
 				,		@ExecutionType2		AS ExecutionType2
 				,		@ExecutionStream	AS ExecutionStream
 				,		@Disabled			AS [Disabled]
+				,		@BIMLBatch			AS BIMLBatch
 			) Source	ON	Dest.ProjectID = Source.ProjectID
 						AND	Dest.PackageID = Source.PackageID
 	WHEN NOT MATCHED THEN
@@ -29,6 +31,7 @@ BEGIN TRY
 			,	ExecType2
 			,	ExecutionStream
 			,	[Disabled]
+			,	BIMLBatch
 			)
 	VALUES	(
 				Source.ProjectID
@@ -38,6 +41,7 @@ BEGIN TRY
 			,	Source.ExecutionType2
 			,	Source.ExecutionStream
 			,	Source.[Disabled]
+			,	Source.BIMLBatch
 			)
 	WHEN MATCHED THEN
 	UPDATE
@@ -45,7 +49,8 @@ BEGIN TRY
 	,		ExecType1			= Source.ExecutionType1
 	,		ExecType2			= Source.ExecutionType2
 	,		ExecutionStream		= Source.ExecutionStream
-	,		[Disabled]			= Source.[Disabled];
+	,		[Disabled]			= Source.[Disabled]
+	,		BIMLBatch			= Source.BIMLBatch;
 END TRY
 
 BEGIN CATCH

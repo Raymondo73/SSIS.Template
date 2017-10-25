@@ -3,7 +3,7 @@ Below sets up core SSIS config details.  Repeat for each Application / Project
 
 */
 
-DECLARE @PrjName			VARCHAR(200)	= 'JNT Landing'
+DECLARE @PrjName			VARCHAR(200)	
 ,		@ProjectId			INT				= 0
 ,		@PackageId			INT				= 0
 ,		@ExecutionOrder		INT				= 0
@@ -16,7 +16,9 @@ DECLARE @PrjName			VARCHAR(200)	= 'JNT Landing'
 ,		@MergeProc			VARCHAR(200)
 ,		@Schema				VARCHAR(200)
 ,		@Table				VARCHAR(200)
-,		@TableID			INT;
+,		@TableID			INT
+,		@MaxRows			INT				= 10000
+,		@BufferSize			INT				= 10485760;
 
 -- JNT Landing ////////////////////////////////////////////////////
 
@@ -30,6 +32,8 @@ Helper for add_SSISPackage
 ,	@MergeProcedure		VARCHAR (255)
 */
 
+SET @PrjName = 'JNT Landing';
+
 SELECT	@ProjectId = ProjectId
 FROM	cfg.Projects
 WHERE	ProjectName = @PrjName;
@@ -42,7 +46,6 @@ FROM			cfg.SourceTables
 WHERE			ProjectID = @ProjectId
 ORDER BY		TableId;
 
-print @schema + '.' + @table;
 
 WHILE @RowCount != 0
 BEGIN
@@ -54,8 +57,15 @@ BEGIN
 	,		@SelectProc			= 'ssis.Select_' + @Schema + '_' + @Table + '_ByCTID'		-- NB schema and proc needs to exist on source db or create sql in data flow source i.e. change this
 	,		@MergeProc			= 'work.Merge_' + @Schema + '_' + @Table;
 
+	/*
+	TODO
+	Work out a way to:
+		Streams on ProjectPackage
+		Buffer and MaxRows on Project
+	*/
+
 	SET @ExecutionOrder += 10;
-	EXEC @PackageId = cfg.Add_SSISPackage @PackageName, @SourceTable, @LandingTable, @DestinationTable, @SelectProc, @MergeProc;	
+	EXEC @PackageId = cfg.Add_SSISPackage @PackageName, @SourceTable, @LandingTable, @DestinationTable, @SelectProc, @MergeProc, @MaxRows, @BufferSize;	
 	EXEC cfg.Add_SSISProjectPackage @ProjectId, @PackageId, @ExecutionOrder, 'I', 'F', 1;		-- NB adjust streams post load when parallel v serial is known
 
 	SELECT	TOP 1	@Schema		= SchemaName
@@ -73,4 +83,5 @@ END
 -- reset
 SELECT	@RowCount	= 1
 ,		@ProjectId	= 0
+,		@PrjName	= '';
 -- /// JNT Landing End ////////////////////////////////////////////////////////////////////////////////

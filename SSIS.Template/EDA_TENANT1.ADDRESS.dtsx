@@ -7,12 +7,12 @@
   DTS:CreatorName="HO\bettsr1"
   DTS:DTSID="{C1E2F164-69D9-4BEA-AE03-9C97648B448D}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.0600.250"
+  DTS:LastModifiedProductVersion="14.0.1000.169"
   DTS:LocaleID="2057"
   DTS:ObjectName="EDA_TENANT1 ADDRESS"
   DTS:PackageType="5"
-  DTS:VersionBuild="25"
-  DTS:VersionGUID="{564E5D55-CC5F-421B-ABBE-531837937A87}">
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{89982329-9EE0-4830-8043-DBCEBB64F95B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -310,7 +310,7 @@
                     <property
                       dataType="System.Int32"
                       description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      name="FastLoadMaxInsertCommitSize">0</property>
                   </properties>
                   <connections>
                     <connection
@@ -675,7 +675,7 @@
           Text="Obtain last known Change Tracking ID from Config&#xA;i.e. last load&#xA;&#xA;Get Table Change Tracking ID&#xA;&#xA;Only perform actions if TableID &gt; LastID"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="301,122"
+          Size="301,120"
           Id="cef857a7-209c-476e-8bac-210dd5913cb6"
           TopLeft="363,99" />
       </GraphLayout>
