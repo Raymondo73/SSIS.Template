@@ -12,8 +12,8 @@
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>SSIS.Control</RootNamespace>
-    <AssemblyName>SSIS.Control</AssemblyName>
+    <RootNamespace>SSISControl</RootNamespace>
+    <AssemblyName>SSISControl</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -129,5 +129,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_scripts\_CreateAppAndProject.sql" />
   </ItemGroup>
 </Project>
