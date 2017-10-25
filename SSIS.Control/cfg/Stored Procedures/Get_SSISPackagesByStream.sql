@@ -16,6 +16,8 @@ BEGIN TRY
 	,		p.DestinationTable
 	,		p.SelectProcedure
 	,		p.MergeProcedure
+	,		p.DefaultBufferMaxRows
+	,		p.DefaultBufferSize
 	FROM	cfg.ProjectPackages		ap
 	JOIN	cfg.Packages			p	ON p.PackageID			= ap.PackageID
 	JOIN	cfg.ApplicationProjects a	ON a.ProjectID			= ap.ProjectID

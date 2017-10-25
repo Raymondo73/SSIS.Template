@@ -7,13 +7,13 @@
   DTS:CreatorName="DC"
   DTS:DTSID="{7DFCCDB6-6FF2-4308-A22D-1CE0D7B56DBB}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.0600.250"
+  DTS:LastModifiedProductVersion="14.0.1000.169"
   DTS:LocaleID="1033"
   DTS:ObjectName="Master_ProjectPackage"
   DTS:PackageType="5"
-  DTS:VersionBuild="284"
+  DTS:VersionBuild="285"
   DTS:VersionComments="20110907"
-  DTS:VersionGUID="{E507BC49-0B94-40A4-9623-90B0E319C701}">
+  DTS:VersionGUID="{F653BBED-822D-4896-AA30-897C3A76D5EA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -139,6 +139,15 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:DTSID="{1250C431-FC8B-49ED-AEED-6B9D3C6B82FF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ChildPackageBufferSize">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
       DTS:DTSID="{46A2FA35-4808-49D6-B0ED-FB897F965F6D}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
@@ -166,6 +175,15 @@
       <DTS:VariableValue
         DTS:DataType="8"
         xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{20DA4D01-5189-4C46-B979-398567FC8A79}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ChildPackageMaxRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -449,6 +467,14 @@
                 <ParameterName>MergeProcedure</ParameterName>
                 <BindedVariableOrParameterName>User::ChildPackageMergeProcedure</BindedVariableOrParameterName>
               </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>BufferSize</ParameterName>
+                <BindedVariableOrParameterName>User::ChildPackageBufferSize</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>MaxRows</ParameterName>
+                <BindedVariableOrParameterName>User::ChildPackageMaxRows</BindedVariableOrParameterName>
+              </ParameterAssignment>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -565,52 +591,64 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{C41FD6A3-BD21-4F9E-BBBA-79F461007FAE}"
-          DTS:ObjectName="{C41FD6A3-BD21-4F9E-BBBA-79F461007FAE}"
+          DTS:DTSID="{BB3D102F-5B44-4406-971C-219C03F553C1}"
+          DTS:ObjectName="{BB3D102F-5B44-4406-971C-219C03F553C1}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::ChildPackagePath" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{1644CED9-69B1-4E34-9A8D-CC244BCB9AFC}"
-          DTS:ObjectName="{1644CED9-69B1-4E34-9A8D-CC244BCB9AFC}"
+          DTS:DTSID="{81E1E301-5447-4EE2-AB87-C09EC456F96F}"
+          DTS:ObjectName="{81E1E301-5447-4EE2-AB87-C09EC456F96F}"
           DTS:ValueIndex="1"
           DTS:VariableName="User::ChildPackageName" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{D7A851FD-1A25-424D-B984-7CF4D96709EF}"
-          DTS:ObjectName="{D7A851FD-1A25-424D-B984-7CF4D96709EF}"
+          DTS:DTSID="{F3495914-329C-4668-A1F8-E569449B6F5D}"
+          DTS:ObjectName="{F3495914-329C-4668-A1F8-E569449B6F5D}"
           DTS:ValueIndex="2"
           DTS:VariableName="User::ChildPackageExecType" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{C91D6575-7B6E-4DFC-AE46-E74B86A43535}"
-          DTS:ObjectName="{C91D6575-7B6E-4DFC-AE46-E74B86A43535}"
+          DTS:DTSID="{3349FA9D-0D71-4D6E-9F03-9A97C3516F4D}"
+          DTS:ObjectName="{3349FA9D-0D71-4D6E-9F03-9A97C3516F4D}"
           DTS:ValueIndex="3"
           DTS:VariableName="User::ChildPackageSourceTable" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{7DEE6AAD-B486-47A4-8197-67C018A394F9}"
-          DTS:ObjectName="{7DEE6AAD-B486-47A4-8197-67C018A394F9}"
+          DTS:DTSID="{F1F0A23F-7625-4C74-BF91-D03A42509B04}"
+          DTS:ObjectName="{F1F0A23F-7625-4C74-BF91-D03A42509B04}"
           DTS:ValueIndex="4"
           DTS:VariableName="User::ChildPackageLandingTable" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{65DAB793-62CC-4A46-BCCF-B40AA1CCDE73}"
-          DTS:ObjectName="{65DAB793-62CC-4A46-BCCF-B40AA1CCDE73}"
+          DTS:DTSID="{82CC9BA3-D52D-44B7-8F51-6AA79394303B}"
+          DTS:ObjectName="{82CC9BA3-D52D-44B7-8F51-6AA79394303B}"
           DTS:ValueIndex="5"
           DTS:VariableName="User::ChildPackageDestinationTable" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{8ACA09B8-3ED7-46EC-B7AF-0BECF0834131}"
-          DTS:ObjectName="{8ACA09B8-3ED7-46EC-B7AF-0BECF0834131}"
+          DTS:DTSID="{E1E92FBE-DBF5-435D-8C92-0E9361C01EED}"
+          DTS:ObjectName="{E1E92FBE-DBF5-435D-8C92-0E9361C01EED}"
           DTS:ValueIndex="6"
           DTS:VariableName="User::ChildPackageSelectProcedure" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{4ECB5954-99C9-4F08-A0D0-8F22142E269D}"
-          DTS:ObjectName="{4ECB5954-99C9-4F08-A0D0-8F22142E269D}"
+          DTS:DTSID="{B2F5DE7C-8B20-47F9-86A6-4675DC666717}"
+          DTS:ObjectName="{B2F5DE7C-8B20-47F9-86A6-4675DC666717}"
           DTS:ValueIndex="7"
           DTS:VariableName="User::ChildPackageMergeProcedure" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{C1FD9C70-15FF-4C9A-B86C-5D7D59CFCEC4}"
+          DTS:ObjectName="{C1FD9C70-15FF-4C9A-B86C-5D7D59CFCEC4}"
+          DTS:ValueIndex="8"
+          DTS:VariableName="User::ChildPackageBufferSize" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{0836B73E-C360-421E-8B32-F1F42AFB08A1}"
+          DTS:ObjectName="{0836B73E-C360-421E-8B32-F1F42AFB08A1}"
+          DTS:ValueIndex="9"
+          DTS:VariableName="User::ChildPackageMaxRows" />
       </DTS:ForEachVariableMappings>
     </DTS:Executable>
   </DTS:Executables>

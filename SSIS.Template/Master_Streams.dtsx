@@ -7,13 +7,13 @@
   DTS:CreatorName="DC"
   DTS:DTSID="{A3BF624B-71B8-49CE-A835-9A4DEE7F3B5A}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.0600.250"
+  DTS:LastModifiedProductVersion="14.0.1000.169"
   DTS:LocaleID="1033"
   DTS:ObjectName="Master_Streams"
   DTS:PackageType="5"
-  DTS:VersionBuild="266"
+  DTS:VersionBuild="267"
   DTS:VersionComments="20110907"
-  DTS:VersionGUID="{C6E240A8-2B94-4909-8E3B-4EEB4C1F3276}">
+  DTS:VersionGUID="{5B2171C0-869A-48B1-A983-3E12E3E56218}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -147,7 +147,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="ParentVersion">
       <DTS:VariableValue
-        DTS:DataType="8">1.0.266.20110907</DTS:VariableValue>
+        DTS:DataType="8">1.0.267.20110907</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
