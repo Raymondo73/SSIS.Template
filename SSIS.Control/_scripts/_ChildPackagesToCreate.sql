@@ -18,7 +18,9 @@ DECLARE @PrjName			VARCHAR(200)
 ,		@Table				VARCHAR(200)
 ,		@TableID			INT
 ,		@MaxRows			INT				= 10000
-,		@BufferSize			INT				= 10485760;
+,		@BufferSize			INT				= 10485760
+,		@BatchSize			INT				= 10000
+,		@MaxInsertCommit	INT				= 0;
 
 -- JNT Landing ////////////////////////////////////////////////////
 
@@ -50,7 +52,7 @@ ORDER BY		TableId;
 WHILE @RowCount != 0
 BEGIN
 
-	SELECT	@PackageName		= @Schema + '.' + @Table + '.dtsx'
+	SELECT	@PackageName		= @Schema + '_' + @Table + '.dtsx'
 	,		@SourceTable		= @Schema + '.' + @Table
 	,		@LandingTable		= 'work.' + @Table
 	,		@DestinationTable	= 'Landing.' + @Table
@@ -65,7 +67,7 @@ BEGIN
 	*/
 
 	SET @ExecutionOrder += 10;
-	EXEC @PackageId = cfg.Add_SSISPackage @PackageName, @SourceTable, @LandingTable, @DestinationTable, @SelectProc, @MergeProc, @MaxRows, @BufferSize;	
+	EXEC @PackageId = cfg.Add_SSISPackage @PackageName, @SourceTable, @LandingTable, @DestinationTable, @SelectProc, @MergeProc, @MaxRows, @BufferSize, @BatchSize, @MaxInsertCommit;	
 	EXEC cfg.Add_SSISProjectPackage @ProjectId, @PackageId, @ExecutionOrder, 'I', 'F', 1;		-- NB adjust streams post load when parallel v serial is known
 
 	SELECT	TOP 1	@Schema		= SchemaName

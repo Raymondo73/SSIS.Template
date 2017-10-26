@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <DeploymentModel>Project</DeploymentModel>
-  <ProductVersion>13.0.1601.5</ProductVersion>
+  <ProductVersion>14.0.800.90</ProductVersion>
   <SchemaVersion>9.0.1.0</SchemaVersion>
   <State>$base64$PFNvdXJjZUNvbnRyb2xJbmZvIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOmRkbDI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yIiB4bWxuczpkZGwyXzI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yLzIiIHhtbG5zOmRkbDEwMF8xMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDA4L2VuZ2luZS8xMDAvMTAwIiB4bWxuczpkZGwyMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAiIHhtbG5zOmRkbDIwMF8yMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAvMjAwIiB4bWxuczpkZGwzMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAiIHhtbG5zOmRkbDMwMF8zMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAvMzAwIiB4bWxuczpkZGw0MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAiIHhtbG5zOmRkbDQwMF80MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAvNDAwIiB4bWxuczpkZGw1MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAiIHhtbG5zOmRkbDUwMF81MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAvNTAwIiB4bWxuczpkd2Q9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vRGF0YVdhcmVob3VzZS9EZXNpZ25lci8xLjAiPg0KICA8RW5hYmxlZD50cnVlPC9FbmFibGVkPg0KICA8UHJvamVjdE5hbWU+U0FLPC9Qcm9qZWN0TmFtZT4NCiAgPEF1eFBhdGg+U0FLPC9BdXhQYXRoPg0KICA8TG9jYWxQYXRoPlNBSzwvTG9jYWxQYXRoPg0KICA8UHJvdmlkZXI+U0FLPC9Qcm92aWRlcj4NCjwvU291cmNlQ29udHJvbEluZm8+</State>
   <Database>
@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">IT500451</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAA0cpO7t5jkei4XXVDRQQjQAAAAACAAAAAAAQZgAAAAEAACAAAACBG8fmf9D5Ls4V466A96K6vfw/LBc2gXvNjyzAR8unZwAAAAAOgAAAAAIAACAAAACqn0dvJBduoC88AcYBobM8sAv2RK7QNTl1PP4PdN5TRJAAAADVaO5PxfoK5yq5fRip+qdrczlepWAaTWsVd5fFUNYQUgnpIXwlMuIlNiEyOmU5bumwB08nPhIa4MbmaccelmxcDS13kS0VziBeQt8frOcL0kVh4qdvNtThW4r/RPoVrcfcRrvFAuJjLBw/wN4r7LKT5Xd/UAdUfywRaSr9pKKuIX0MzWg9QdJs8zFmhIsQHy9AAAAAY+8tl0QtNRjxst1O5ddfXTX1O63R/98qQh/RY3FxL8M5SBaoqp18BLgon/EgTQNyF8FgMQu9PPk+ZfEGKgWfqg==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/ulzFSsNsUWGM5xWplX63AAAAAACAAAAAAAQZgAAAAEAACAAAACgxVPpQBn6Cvs/gx227Hi6DWFanrU3mFePdzQlG5ylywAAAAAOgAAAAAIAACAAAADj++MYaLdR4V1h/pHtTed5EiuaWSr2ZudwkyLoZK0PRpAAAABPXgH37Lj4s5f5Ii6pNkUTfU4hlx0UV4+cyS6tbuHn/SR5bq7doRGj4lSsuzywhEsvFYoDR2gCL4oAJE/ZMSmFaxh83wrbkXFm0oOoD2Ur4cCWj7mIWtauTAXu+2iOseR67zIlHkM9XUV87lKcSXdXMIAtdDrCasXMF/HpvORsZAfnY6XTgolYejg0lDjaFfVAAAAAIseWu9ixW2DJvMD1HnO8c5pfptrxxgV+JGz5F8hW2/APgHD/yBU/oxy36RgdzIc1ldSK4dFbczm4CwqCORHUhg==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -314,9 +314,9 @@
                 <SSIS:Property SSIS:Name="Name">Master_Streams</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">266</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">267</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">20110907</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{C6E240A8-2B94-4909-8E3B-4EEB4C1F3276}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{5B2171C0-869A-48B1-A983-3E12E3E56218}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -370,9 +370,9 @@
                 <SSIS:Property SSIS:Name="Name">Master_ProjectPackage</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">284</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">285</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">20110907</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{E507BC49-0B94-40A4-9623-90B0E319C701}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{F653BBED-822D-4896-AA30-897C3A76D5EA}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -515,16 +515,44 @@
                 <SSIS:Property SSIS:Name="Name">EDA_TENANT1 ADDRESS</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">24</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">28</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{B7CBA29A-6E8C-48BB-84A6-9CC65BE863DA}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{C5C1F1BF-1ACB-4B2C-8A22-D0C8BBD71EDA}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
               </SSIS:Properties>
               <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="DefaultBufferMaxRows">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{05B356F2-E5A3-4DCB-8AA9-2FBC46EA5A96}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">10000</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="DefaultBufferSize">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{F414C50E-8437-43EB-9C3B-E29B8CCED6A9}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">104857600</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
                 <SSIS:Parameter SSIS:Name="DestinationTable">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">{1D58BCAF-81EB-4350-9FDB-B9711084AEA2}</SSIS:Property>

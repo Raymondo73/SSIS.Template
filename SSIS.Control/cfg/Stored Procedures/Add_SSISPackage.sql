@@ -1,12 +1,14 @@
 ﻿CREATE PROCEDURE [cfg].[Add_SSISPackage]
-	@PackageName		VARCHAR (255)
-,	@SourceTable		VARCHAR (255)
-,	@LandingTable		VARCHAR (255)
-,	@DestinationTable	VARCHAR (255)
-,	@SelectProcedure	VARCHAR (255)
-,	@MergeProcedure		VARCHAR (255)
-,	@MaxRows			INT				= 10000
-,	@BufferSize			INT				= 10485760
+	@PackageName			VARCHAR (255)
+,	@SourceTable			VARCHAR (255)
+,	@LandingTable			VARCHAR (255)
+,	@DestinationTable		VARCHAR (255)
+,	@SelectProcedure		VARCHAR (255)
+,	@MergeProcedure			VARCHAR (255)
+,	@MaxRows				INT				= 10000
+,	@BufferSize				INT				= 10485760
+,	@BatchSize				INT				= 10000
+,	@MaxInsertCommitSize	INT				= 0
 
 AS
 
@@ -18,14 +20,16 @@ BEGIN TRY
 	-- Insert
 	WITH Package AS
 	(
-		SELECT	@PackageName		AS PackageName
-		,		@SourceTable		AS SourceTable
-		,		@LandingTable		AS LandingTable
-		,		@DestinationTable	AS DestinationTable
-		,		@SelectProcedure	AS SelectProcedure
-		,		@MergeProcedure		AS MergeProcedure
-		,		@MaxRows			AS MaxRows
-		,		@BufferSize			AS BufferSize
+		SELECT	@PackageName			AS PackageName
+		,		@SourceTable			AS SourceTable
+		,		@LandingTable			AS LandingTable
+		,		@DestinationTable		AS DestinationTable
+		,		@SelectProcedure		AS SelectProcedure
+		,		@MergeProcedure			AS MergeProcedure
+		,		@MaxRows				AS MaxRows
+		,		@BufferSize				AS BufferSize
+		,		@BatchSize				AS [BatchSize]
+		,		@MaxInsertCommitSize	AS MaxInsertCommitSize
 	)
 	INSERT INTO	cfg.Packages
 					(	PackageName
@@ -36,6 +40,8 @@ BEGIN TRY
 					,	MergeProcedure
 					,	DefaultBufferMaxRows
 					,	DefaultBufferSize
+					,	[BatchSize]
+					,	MaximumInsertCommitSize
 					)
 	SELECT		p1.PackageName
 	,			p1.SourceTable
@@ -45,6 +51,8 @@ BEGIN TRY
 	,			p1.MergeProcedure
 	,			p1.MaxRows
 	,			p1.BufferSize
+	,			p1.[BatchSize]
+	,			p1.MaxInsertCommitSize
 	FROM		Package			p1
 	LEFT JOIN	cfg.Packages	p2	ON p1.PackageName = p2.PackageName
 	WHERE		p2.PackageID IS NULL;
@@ -53,14 +61,16 @@ BEGIN TRY
 	-- Update
 	WITH Package AS
 	(
-		SELECT	@PackageName		AS PackageName
-		,		@SourceTable		AS SourceTable
-		,		@LandingTable		AS LandingTable
-		,		@DestinationTable	AS DestinationTable
-		,		@SelectProcedure	AS SelectProcedure
-		,		@MergeProcedure		AS MergeProcedure
-		,		@MaxRows			AS MaxRows
-		,		@BufferSize			AS BufferSize
+		SELECT	@PackageName			AS PackageName
+		,		@SourceTable			AS SourceTable
+		,		@LandingTable			AS LandingTable
+		,		@DestinationTable		AS DestinationTable
+		,		@SelectProcedure		AS SelectProcedure
+		,		@MergeProcedure			AS MergeProcedure
+		,		@MaxRows				AS MaxRows
+		,		@BufferSize				AS BufferSize
+		,		@BatchSize				AS [BatchSize]
+		,		@MaxInsertCommitSize	AS MaxInsertCommitSize
 	)
 	UPDATE	p1
 	SET		PackageName				= p2.PackageName
@@ -71,6 +81,8 @@ BEGIN TRY
 	,		MergeProcedure			= p2.MergeProcedure
 	,		DefaultBufferMaxRows	= p2.MaxRows
 	,		DefaultBufferSize		= p2.BufferSize
+	,		[BatchSize]				= p2.[BatchSize]
+	,		MaximumInsertCommitSize	= p2.MaxInsertCommitSize
 	FROM	cfg.Packages	p1
 	JOIN	Package			p2	ON p1.PackageName = p2.PackageName;
 

@@ -9,5 +9,7 @@
 	[MergeProcedure] [varchar](255) NULL,
     [DefaultBufferMaxRows] INT NULL DEFAULT(10000), 
     [DefaultBufferSize] INT NULL DEFAULT(10485760), 
+	[BatchSize] INT NOT NULL DEFAULT(10000),
+	[MaximumInsertCommitSize] INT NOT NULL DEFAULT(0),
     CONSTRAINT [PK_Packages] PRIMARY KEY CLUSTERED ([PackageID] ASC)
 );

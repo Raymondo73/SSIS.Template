@@ -11,11 +11,29 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="EDA_TENANT1 ADDRESS"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{89982329-9EE0-4830-8043-DBCEBB64F95B}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{C5C1F1BF-1ACB-4B2C-8A22-D0C8BBD71EDA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{05B356F2-E5A3-4DCB-8AA9-2FBC46EA5A96}"
+      DTS:ObjectName="DefaultBufferMaxRows">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">10000</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{F414C50E-8437-43EB-9C3B-E29B8CCED6A9}"
+      DTS:ObjectName="DefaultBufferSize">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">104857600</DTS:Property>
+    </DTS:PackageParameter>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
@@ -80,6 +98,28 @@
       DTS:ObjectName="CurrentChangeTrackingSQL">
       <DTS:VariableValue
         DTS:DataType="8">SELECT ISNULL(CHANGE_TRACKING_CURRENT_VERSION (), 0) AS ChangeTrackingID</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CE000B75-CA74-43F7-B954-2684E756D238}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::DefaultBufferMaxRows]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DefaultBufferMaxRows">
+      <DTS:VariableValue
+        DTS:DataType="3">10000</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{01951B0A-44AB-4CE2-ABF7-8CCF74738077}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::DefaultBufferSize]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DefaultBufferSize">
+      <DTS:VariableValue
+        DTS:DataType="3">104857600</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -529,7 +569,7 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="174,42"
+          Size="171.5,42"
           Id="Package\EDATENANT1_ADDRESS\Land Changed Data"
           TopLeft="23.5,79.5" />
         <NodeLayout
@@ -546,7 +586,7 @@
           TopLeft="2,227.5" />
         <EdgeLayout
           Id="Package\EDATENANT1_ADDRESS.PrecedenceConstraints[Constraint]"
-          TopLeft="110.25,49">
+          TopLeft="109.625,49">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -568,7 +608,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\EDATENANT1_ADDRESS.PrecedenceConstraints[Constraint 1]"
-          TopLeft="111.25,121.5">
+          TopLeft="110.625,121.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -613,8 +653,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="220,282"
-          Size="220,325"
+          PanelSize="220,324.5"
+          Size="220,367.5"
           Id="Package\EDATENANT1_ADDRESS"
           TopLeft="94,223" />
         <NodeLayout
@@ -622,7 +662,7 @@
           Id="Package\Get Current Change Tracking ID"
           TopLeft="92,144" />
         <NodeLayout
-          Size="217,42"
+          Size="214.5,42"
           Id="Package\Get Last Change Tracking ID"
           TopLeft="98.5,62" />
         <EdgeLayout
@@ -651,7 +691,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="207.75,104">
+          TopLeft="207.125,104">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
