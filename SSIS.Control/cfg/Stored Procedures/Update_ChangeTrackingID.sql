@@ -2,9 +2,7 @@
 /******************************************************
 	Author:			Raymond F. Betts
 	Date:			03 August 2017
-	Description:	Select From
-						cfg.TableChangeTracking	
-						cfg.Packages					
+	Description:	Update change tracking ID and date of change					
 ******************************************************/
 	@PackageName		VARCHAR(200)
 ,	@ChangeTrackingID	INT
@@ -14,17 +12,10 @@ AS
 BEGIN TRY
 	SET NOCOUNT ON;
 
-	WITH Package AS
-	(
-		SELECT	PackageID
-		FROM	cfg.Packages
-		WHERE	PackageName = @PackageName
-	)
 	UPDATE	c
-	SET		ChangeTrackingID	= @ChangeTrackingID
-	,		LastUpdated			= GETUTCDATE()
-	FROM	cfg.TableChangeTracking c
-	JOIN	Package					p ON p.PackageID = c.PackageId;
+	SET		LastChangeTrackingID	= @ChangeTrackingID
+	,		LastChangeTrackUpdated	= GETUTCDATE()
+	FROM	cfg.Packages	c;
 
 END TRY
 

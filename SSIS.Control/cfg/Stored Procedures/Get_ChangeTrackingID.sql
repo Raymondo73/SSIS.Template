@@ -15,10 +15,9 @@ BEGIN TRY
 	
 	DECLARE @ChangeTrackingID INT;
 
-	SELECT	@ChangeTrackingID = c.ChangeTrackingID
-	FROM	cfg.TableChangeTracking	c 
-	JOIN	cfg.Packages			p ON c.PackageId = p.PackageID  
-	WHERE	p.PackageName = @PackageName;
+	SELECT	@ChangeTrackingID = LastChangeTrackingID
+	FROM	cfg.Packages		
+	WHERE	PackageName = @PackageName;
 
 	SELECT ISNULL(@ChangeTrackingID, -1) AS ChangeTrackingID;
 

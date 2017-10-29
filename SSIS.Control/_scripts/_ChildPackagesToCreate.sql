@@ -17,8 +17,8 @@ DECLARE @PrjName			VARCHAR(200)
 ,		@Schema				VARCHAR(200)
 ,		@Table				VARCHAR(200)
 ,		@TableID			INT
-,		@MaxRows			INT				= 10000
-,		@BufferSize			INT				= 10485760
+,		@MaxRows			INT				= 100000
+,		@BufferSize			INT				= 60485760
 ,		@BatchSize			INT				= 10000
 ,		@MaxInsertCommit	INT				= 0;
 
@@ -56,7 +56,7 @@ BEGIN
 	,		@SourceTable		= @Schema + '.' + @Table
 	,		@LandingTable		= 'work.' + @Table
 	,		@DestinationTable	= 'Landing.' + @Table
-	,		@SelectProc			= 'ssis.Select_' + @Schema + '_' + @Table + '_ByCTID'		-- NB schema and proc needs to exist on source db or create sql in data flow source i.e. change this
+	,		@SelectProc			= 'ssis.Select_' + @Schema + @Table + '_ByCTID'		-- NB schema and proc needs to exist on source db or create sql in data flow source i.e. change this
 	,		@MergeProc			= 'work.Merge_' + @Schema + '_' + @Table;
 
 	/*

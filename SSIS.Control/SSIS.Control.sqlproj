@@ -104,10 +104,8 @@
     <Build Include="Security\cfg.sql" />
     <Build Include="Security\audit.sql" />
     <None Include="_publish\localhost.publish.xml" />
-    <None Include="_scripts\_ChangeTrackingTableRows.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="cfg\Tables\TableChangeTracking.sql" />
     <None Include="_scripts\_ChildPackagesToCreate.sql">
       <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
     </None>
@@ -136,5 +134,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="_scripts\_DBConnections.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="SSIS.Control.refactorlog" />
   </ItemGroup>
 </Project>

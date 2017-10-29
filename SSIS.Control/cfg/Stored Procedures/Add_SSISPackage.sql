@@ -42,6 +42,7 @@ BEGIN TRY
 					,	DefaultBufferSize
 					,	[BatchSize]
 					,	MaximumInsertCommitSize
+					,	LastChangeTrackingID
 					)
 	SELECT		p1.PackageName
 	,			p1.SourceTable
@@ -53,6 +54,7 @@ BEGIN TRY
 	,			p1.BufferSize
 	,			p1.[BatchSize]
 	,			p1.MaxInsertCommitSize
+	,			-1
 	FROM		Package			p1
 	LEFT JOIN	cfg.Packages	p2	ON p1.PackageName = p2.PackageName
 	WHERE		p2.PackageID IS NULL;

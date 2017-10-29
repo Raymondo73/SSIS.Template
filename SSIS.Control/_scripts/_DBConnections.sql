@@ -6,15 +6,15 @@ DECLARE @Connections TABLE
 ,		ConnectionName		VARCHAR(255)		NOT NULL
 ,		ServerName			VARCHAR(255)		NOT NULL
 ,		DatabaseName		VARCHAR(255)		NOT NULL
-,		Provider			VARCHAR(255)		NOT NULL
-,		Timeout				SMALLINT			NOT NULL
+,		[Provider]			VARCHAR(255)		NOT NULL
+,		[Timeout]			SMALLINT			NOT NULL
 ,		DefaultConnection	BIT					NOT NULL
 ,		ControlConnection	BIT					NOT NULL
 ,		ProjectID			INT					NOT NULL
 ,		PRIMARY KEY CLUSTERED (DBConnectionID ASC)                     
 )
 
-DECLARE @PID INT
+DECLARE @PID INT;
 
 -- /// JNT Landing /////////////////////////////////////////////////////////////
 SELECT	@PID = ProjectID
@@ -22,9 +22,9 @@ FROM	cfg.Projects
 WHERE	ProjectName = 'JNT Landing';
 
 INSERT	@Connections
-VALUES	(N'SSISControl', N'LocalHost', N'SSISControl', N'SQLOLEDB', 0, 0, 1, @PID)
-,		(N'JNTSource', N'LocalHost', N'JNTDatabase', N'SQLOLEDB', 0, 0, 0, @PID)
-,		(N'JNTLanding', N'LocalHost', N'JNTLanding', N'SQLOLEDB', 0, 0, 0, @PID);
+VALUES	(N'SSISControl', N'LocalHost', N'SSISControl', N'SQLNCLI11.1', 0, 0, 1, @PID)
+,		(N'JNTSource', N'LocalHost', N'JNTDatabase', N'SQLNCLI11.1', 0, 0, 0, @PID)
+,		(N'JNTLanding', N'LocalHost', N'JNTLanding', N'SQLNCLI11.1', 0, 0, 0, @PID);
 -- /// JNT Landing /////////////////////////////////////////////////////////////
 
 

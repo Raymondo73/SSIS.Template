@@ -13,5 +13,4 @@ Post-Deployment Script Template
 :r .\_CreateAppAndProject.sql
 :r .\_SourceTables.sql
 :r .\_ChildPackagesToCreate.sql
-:r .\_ChangeTrackingTableRows.sql
 :r .\_DBConnections.sql

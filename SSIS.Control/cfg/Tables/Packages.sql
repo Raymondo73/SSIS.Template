@@ -11,5 +11,7 @@
     [DefaultBufferSize] INT NULL DEFAULT(10485760), 
 	[BatchSize] INT NOT NULL DEFAULT(10000),
 	[MaximumInsertCommitSize] INT NOT NULL DEFAULT(0),
+    [LastChangeTrackingID] INT NULL DEFAULT -1, 
+    [LastChangeTrackUpdated] SMALLDATETIME NULL, 
     CONSTRAINT [PK_Packages] PRIMARY KEY CLUSTERED ([PackageID] ASC)
 );

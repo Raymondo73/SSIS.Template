@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="aed1616b-1fa7-412d-b505-871f96fa7a82" ChangeDateTime="10/27/2017 16:36:10">
+    <Property Name="ElementName" Value="[cfg].[Packages].[LastChangeTRackUpdated]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[cfg].[Packages]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LastChangeTrackUpdated" />
+  </Operation>
+</Operations>
