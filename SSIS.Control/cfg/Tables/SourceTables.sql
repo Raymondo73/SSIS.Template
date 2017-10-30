@@ -3,8 +3,6 @@
     [DatabaseName]		NVARCHAR (100)	NOT NULL,
     [SchemaName]		NVARCHAR (20)	NOT NULL,
     [TableName]			NVARCHAR (100)	NOT NULL,
-	[ChangeTrackingID]	INT				NULL DEFAULT (-1),
-	[LastUpdated]		SMALLDATETIME	NULL,
     [ProjectID]			INT				NULL, 
 	LargeTable			BIT				NOT NULL DEFAULT(0),
     PRIMARY KEY CLUSTERED ([TableId] ASC), 
