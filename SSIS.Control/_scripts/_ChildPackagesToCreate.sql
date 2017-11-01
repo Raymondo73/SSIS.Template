@@ -57,7 +57,7 @@ BEGIN
 	,		@LandingTable		= 'work.' + @Table
 	,		@DestinationTable	= 'Landing.' + @Table
 	,		@SelectProc			= 'ssis.Select_' + @Schema + @Table + '_ByCTID'		-- NB schema and proc needs to exist on source db or create sql in data flow source i.e. change this
-	,		@MergeProc			= 'work.Merge_' + @Schema + '_' + @Table;
+	,		@MergeProc			= 'work.Merge' + '_' + @Table;
 
 	/*
 	TODO
