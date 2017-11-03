@@ -59,7 +59,7 @@ SELECT 'JNTDatabase' AS DatabaseName, 'dbo' AS SchemaName, 'UserTable' AS TableN
 UNION
 SELECT 'JNTDatabase' AS DatabaseName, 'dbo' AS SchemaName, 'WriteOffTable' AS TableName, @PjectID AS ProjectID, 0 AS LargeTable 
 UNION
-SELECT 'JNTDatabase' AS DatabaseName, 'dbo' AS SchemaName, 'TransactionTable' AS TableName, @PjectID AS ProjectID, 0 AS LargeTable 
+SELECT 'JNTDatabase' AS DatabaseName, 'dbo' AS SchemaName, 'TransactionTable' AS TableName, @PjectID AS ProjectID, 1 AS LargeTable 
 UNION
 SELECT 'JNTDatabase' AS DatabaseName, 'dbo' AS SchemaName, 'AgreementDefinitionTable' AS TableName, @PjectID AS ProjectID, 0 AS LargeTable 
 UNION

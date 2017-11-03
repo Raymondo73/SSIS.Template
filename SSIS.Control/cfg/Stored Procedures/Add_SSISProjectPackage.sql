@@ -21,6 +21,7 @@ BEGIN TRY
 				,		@ExecutionStream	AS ExecutionStream
 				,		@Disabled			AS [Disabled]
 				,		@BIMLBatch			AS BIMLBatch
+				,		20000				AS BIMLBatchSize
 			) Source	ON	Dest.ProjectID = Source.ProjectID
 						AND	Dest.PackageID = Source.PackageID
 	WHEN NOT MATCHED THEN
@@ -32,6 +33,7 @@ BEGIN TRY
 			,	ExecutionStream
 			,	[Disabled]
 			,	BIMLBatch
+			,	BIMLBatchSize
 			)
 	VALUES	(
 				Source.ProjectID
@@ -42,6 +44,7 @@ BEGIN TRY
 			,	Source.ExecutionStream
 			,	Source.[Disabled]
 			,	Source.BIMLBatch
+			,	Source.BIMLBatchSize
 			)
 	WHEN MATCHED THEN
 	UPDATE
@@ -50,7 +53,8 @@ BEGIN TRY
 	,		ExecType2			= Source.ExecutionType2
 	,		ExecutionStream		= Source.ExecutionStream
 	,		[Disabled]			= Source.[Disabled]
-	,		BIMLBatch			= Source.BIMLBatch;
+	,		BIMLBatch			= Source.BIMLBatch
+	,		BIMLBatchSize		= Source.BIMLBatchSize;
 END TRY
 
 BEGIN CATCH
