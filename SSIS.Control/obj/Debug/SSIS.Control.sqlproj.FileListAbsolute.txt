@@ -20,3 +20,7 @@ C:\Users\Raymond\Source\Repos\SSIS_Template\SSIS.Control\bin\Debug\SSISControl.p
 C:\Users\Raymond\Source\Repos\SSIS_Template\SSIS.Control\bin\Debug\master.dacpac
 C:\Users\Raymond\Source\Repos\SSIS_Template\SSIS.Control\obj\Debug\SSISControl.dll
 C:\Users\Raymond\Source\Repos\SSIS_Template\SSIS.Control\obj\Debug\SSISControl.pdb
+C:\Users\Raymond\Source\Repos\SSIS_Template\SSIS.Control\obj\Debug\Model.xml
+C:\Users\Raymond\Source\Repos\SSIS_Template\SSIS.Control\obj\Debug\refactor.xml
+C:\Users\Raymond\Source\Repos\SSIS_Template\SSIS.Control\obj\Debug\postdeploy.sql
+C:\Users\Raymond\Source\Repos\SSIS_Template\SSIS.Control\obj\Debug\predeploy.sql

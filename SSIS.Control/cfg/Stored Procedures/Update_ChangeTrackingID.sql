@@ -15,7 +15,8 @@ BEGIN TRY
 	UPDATE	c
 	SET		LastChangeTrackingID	= @ChangeTrackingID
 	,		LastChangeTrackUpdated	= GETUTCDATE()
-	FROM	cfg.Packages	c;
+	FROM	cfg.Packages	c
+	WHERE	c.PackageName = @PackageName;
 
 END TRY
 

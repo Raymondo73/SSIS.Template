@@ -3,8 +3,7 @@
 	Author:			Raymond F. Betts
 	Date:			03 August 2017
 	Description:	Select From
-						etl.TableChangeTracking	
-						etl.Packages					
+						cfg.Packages					
 ******************************************************/
 	@PackageName VARCHAR(200)
 
