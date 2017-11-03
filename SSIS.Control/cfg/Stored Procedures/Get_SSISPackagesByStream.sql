@@ -18,6 +18,9 @@ BEGIN TRY
 	,		p.MergeProcedure
 	,		p.DefaultBufferMaxRows
 	,		p.DefaultBufferSize
+	,		p.[BatchSize]
+	,		p.MaximumInsertCommitSize
+	,		ap.BIMLBatchSize
 	FROM	cfg.ProjectPackages		ap
 	JOIN	cfg.Packages			p	ON p.PackageID			= ap.PackageID
 	JOIN	cfg.ApplicationProjects a	ON a.ProjectID			= ap.ProjectID
