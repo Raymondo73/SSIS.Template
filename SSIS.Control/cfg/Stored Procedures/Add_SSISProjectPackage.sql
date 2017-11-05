@@ -6,7 +6,7 @@
 ,	@ExecutionType2		CHAR(1) = 'I'
 ,	@ExecutionStream	INT		= 1
 ,	@Disabled			BIT		= 0
-,	@BIMLBatch			BIT		= 0
+,	@SSISIsBatchLoad	BIT		= 0
 AS
 
 BEGIN TRY
@@ -20,8 +20,8 @@ BEGIN TRY
 				,		@ExecutionType2		AS ExecutionType2
 				,		@ExecutionStream	AS ExecutionStream
 				,		@Disabled			AS [Disabled]
-				,		@BIMLBatch			AS BIMLBatch
-				,		20000				AS BIMLBatchSize
+				,		@SSISIsBatchLoad	AS SSISIsBatchLoad
+				,		20000				AS LoopBatchSize
 			) Source	ON	Dest.ProjectID = Source.ProjectID
 						AND	Dest.PackageID = Source.PackageID
 	WHEN NOT MATCHED THEN
@@ -32,8 +32,8 @@ BEGIN TRY
 			,	ExecType2
 			,	ExecutionStream
 			,	[Disabled]
-			,	BIMLBatch
-			,	BIMLBatchSize
+			,	SSISIsBatchLoad
+			,	LoopBatchSize
 			)
 	VALUES	(
 				Source.ProjectID
@@ -43,8 +43,8 @@ BEGIN TRY
 			,	Source.ExecutionType2
 			,	Source.ExecutionStream
 			,	Source.[Disabled]
-			,	Source.BIMLBatch
-			,	Source.BIMLBatchSize
+			,	Source.SSISIsBatchLoad
+			,	Source.LoopBatchSize
 			)
 	WHEN MATCHED THEN
 	UPDATE
@@ -53,8 +53,8 @@ BEGIN TRY
 	,		ExecType2			= Source.ExecutionType2
 	,		ExecutionStream		= Source.ExecutionStream
 	,		[Disabled]			= Source.[Disabled]
-	,		BIMLBatch			= Source.BIMLBatch
-	,		BIMLBatchSize		= Source.BIMLBatchSize;
+	,		SSISIsBatchLoad		= Source.SSISIsBatchLoad
+	,		LoopBatchSize		= Source.LoopBatchSize;
 END TRY
 
 BEGIN CATCH

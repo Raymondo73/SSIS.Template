@@ -7,4 +7,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="LastChangeTrackUpdated" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="aaffcfef-5e58-4981-a6e7-14627bcc6a84" ChangeDateTime="11/05/2017 16:02:54">
+    <Property Name="ElementName" Value="[cfg].[ProjectPackages].[BIMLBatchSize]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[cfg].[ProjectPackages]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LoopBatchSize" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="651754c3-bb6e-4c69-aaef-33eaa8333908" ChangeDateTime="11/05/2017 16:03:10">
+    <Property Name="ElementName" Value="[cfg].[ProjectPackages].[BIMLBatch]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[cfg].[ProjectPackages]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SSISIsBatchLoad" />
+  </Operation>
 </Operations>
