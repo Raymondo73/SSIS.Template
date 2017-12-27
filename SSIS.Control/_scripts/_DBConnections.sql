@@ -23,8 +23,8 @@ WHERE	ProjectName = 'JNT Landing';
 
 INSERT	@Connections
 VALUES	(N'SSISControl', N'LocalHost', N'SSISControl', N'SQLNCLI11.1', 0, 0, 1, @PID)
-,		(N'JNTSource', N'LocalHost', N'JNTDatabase', N'SQLNCLI11.1', 0, 0, 0, @PID)
-,		(N'JNTLanding', N'LocalHost', N'JNTLanding', N'SQLNCLI11.1', 0, 0, 0, @PID);
+,		(N'Source', N'LocalHost', N'JNTDatabase', N'SQLNCLI11.1', 0, 0, 0, @PID)
+,		(N'Destination', N'LocalHost', N'JNTLanding', N'SQLNCLI11.1', 0, 0, 0, @PID);
 -- /// JNT Landing /////////////////////////////////////////////////////////////
 
 

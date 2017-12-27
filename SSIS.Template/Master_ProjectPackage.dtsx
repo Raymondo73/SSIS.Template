@@ -7,29 +7,21 @@
   DTS:CreatorName="DC"
   DTS:DTSID="{7DFCCDB6-6FF2-4308-A22D-1CE0D7B56DBB}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.1000.169"
+  DTS:LastModifiedProductVersion="14.0.3006.16"
   DTS:LocaleID="1033"
   DTS:ObjectName="Master_ProjectPackage"
   DTS:PackageType="5"
-  DTS:VersionBuild="285"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="299"
   DTS:VersionComments="20110907"
-  DTS:VersionGUID="{F653BBED-822D-4896-AA30-897C3A76D5EA}">
+  DTS:VersionGUID="{94E6FB23-30B2-4EB0-A085-2160B931D523}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="3"
-      DTS:DTSID="{32E8AFBF-489C-46DF-983F-CF819115D386}"
-      DTS:ObjectName="AppInstanceID"
-      DTS:Required="True">
-      <DTS:Property
-        DTS:DataType="3"
-        DTS:Name="ParameterValue">0</DTS:Property>
-    </DTS:PackageParameter>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="3"
+      DTS:Description="1 = Incremental, 2 = Full"
       DTS:DTSID="{4F9F0EFE-B22D-46FC-BE61-B94DCEF31403}"
       DTS:ObjectName="ApplicationExecutionType"
       DTS:Required="True">
@@ -39,12 +31,23 @@
     </DTS:PackageParameter>
     <DTS:PackageParameter
       DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{F77C724B-0209-4933-8FC0-E0F23A4494F0}"
+      DTS:ObjectName="ApplicationInstanceId"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
       DTS:DataType="8"
+      DTS:Description="SSISControl.cfg.Application"
       DTS:DTSID="{76EB095E-5549-4C5C-8FBA-06B1AD2742A4}"
       DTS:ObjectName="ApplicationName">
       <DTS:Property
         DTS:DataType="8"
-        DTS:Name="ParameterValue">Unknown</DTS:Property>
+        DTS:Name="ParameterValue">JNT Landing</DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
       DTS:CreationName=""
@@ -106,9 +109,9 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{EEC9CC46-D3FD-46EC-83DF-033ED59ADB04}"
+      DTS:DTSID="{357AC7C8-2847-4838-BD90-526C7E9EDCF7}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="@[$Package::AppInstanceID]"
+      DTS:Expression="@[$Package::ApplicationInstanceId]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="AppInstanceID">
@@ -135,7 +138,34 @@
       DTS:Namespace="User"
       DTS:ObjectName="ApplicationName">
       <DTS:VariableValue
-        DTS:DataType="8">Unknown</DTS:VariableValue>
+        DTS:DataType="8">JNT Landing</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{57C8F175-DBD4-448D-A599-C97E22FE7B68}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ChildPackageBatchLoad">
+      <DTS:VariableValue
+        DTS:DataType="11">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FF263963-69CF-43B7-AC56-63953B3B606F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ChildPackageBatchSize">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FF60D3AC-E941-4A5D-B3FD-177D9B7BB12A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ChildPackageBIMLBatch">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -175,6 +205,15 @@
       <DTS:VariableValue
         DTS:DataType="8"
         xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9E14365E-AA85-4679-A6BB-996579B48B5D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ChildPackageMaxCommitRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -591,64 +630,88 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{BB3D102F-5B44-4406-971C-219C03F553C1}"
-          DTS:ObjectName="{BB3D102F-5B44-4406-971C-219C03F553C1}"
+          DTS:DTSID="{183592AB-876A-4103-8B4B-339C0E074B05}"
+          DTS:ObjectName="{183592AB-876A-4103-8B4B-339C0E074B05}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::ChildPackagePath" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{81E1E301-5447-4EE2-AB87-C09EC456F96F}"
-          DTS:ObjectName="{81E1E301-5447-4EE2-AB87-C09EC456F96F}"
+          DTS:DTSID="{0082BCA6-2B18-442D-8DC5-CD2401C6538E}"
+          DTS:ObjectName="{0082BCA6-2B18-442D-8DC5-CD2401C6538E}"
           DTS:ValueIndex="1"
           DTS:VariableName="User::ChildPackageName" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{F3495914-329C-4668-A1F8-E569449B6F5D}"
-          DTS:ObjectName="{F3495914-329C-4668-A1F8-E569449B6F5D}"
+          DTS:DTSID="{B49BB632-FEC7-41DD-A06B-8C1A2710DE8C}"
+          DTS:ObjectName="{B49BB632-FEC7-41DD-A06B-8C1A2710DE8C}"
           DTS:ValueIndex="2"
           DTS:VariableName="User::ChildPackageExecType" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{3349FA9D-0D71-4D6E-9F03-9A97C3516F4D}"
-          DTS:ObjectName="{3349FA9D-0D71-4D6E-9F03-9A97C3516F4D}"
+          DTS:DTSID="{4D381EB0-C3DA-44A4-9BB8-E5EEA2F5F19D}"
+          DTS:ObjectName="{4D381EB0-C3DA-44A4-9BB8-E5EEA2F5F19D}"
           DTS:ValueIndex="3"
           DTS:VariableName="User::ChildPackageSourceTable" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{F1F0A23F-7625-4C74-BF91-D03A42509B04}"
-          DTS:ObjectName="{F1F0A23F-7625-4C74-BF91-D03A42509B04}"
+          DTS:DTSID="{5E5E55F5-EB8F-47A9-B5FB-938F0F2FA19D}"
+          DTS:ObjectName="{5E5E55F5-EB8F-47A9-B5FB-938F0F2FA19D}"
           DTS:ValueIndex="4"
           DTS:VariableName="User::ChildPackageLandingTable" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{82CC9BA3-D52D-44B7-8F51-6AA79394303B}"
-          DTS:ObjectName="{82CC9BA3-D52D-44B7-8F51-6AA79394303B}"
+          DTS:DTSID="{2A8A9A25-A495-461F-A5A8-CABB56DFF0B3}"
+          DTS:ObjectName="{2A8A9A25-A495-461F-A5A8-CABB56DFF0B3}"
           DTS:ValueIndex="5"
           DTS:VariableName="User::ChildPackageDestinationTable" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{E1E92FBE-DBF5-435D-8C92-0E9361C01EED}"
-          DTS:ObjectName="{E1E92FBE-DBF5-435D-8C92-0E9361C01EED}"
+          DTS:DTSID="{EC8DB80F-AC13-4269-96A5-D0FA77D53570}"
+          DTS:ObjectName="{EC8DB80F-AC13-4269-96A5-D0FA77D53570}"
           DTS:ValueIndex="6"
           DTS:VariableName="User::ChildPackageSelectProcedure" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{B2F5DE7C-8B20-47F9-86A6-4675DC666717}"
-          DTS:ObjectName="{B2F5DE7C-8B20-47F9-86A6-4675DC666717}"
+          DTS:DTSID="{23AB3486-9B8E-4B5F-BCB8-E358661C300E}"
+          DTS:ObjectName="{23AB3486-9B8E-4B5F-BCB8-E358661C300E}"
           DTS:ValueIndex="7"
           DTS:VariableName="User::ChildPackageMergeProcedure" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{C1FD9C70-15FF-4C9A-B86C-5D7D59CFCEC4}"
-          DTS:ObjectName="{C1FD9C70-15FF-4C9A-B86C-5D7D59CFCEC4}"
+          DTS:DTSID="{844823B1-BA48-45BC-9947-26FBF7105A7F}"
+          DTS:ObjectName="{844823B1-BA48-45BC-9947-26FBF7105A7F}"
           DTS:ValueIndex="8"
           DTS:VariableName="User::ChildPackageBufferSize" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{0836B73E-C360-421E-8B32-F1F42AFB08A1}"
-          DTS:ObjectName="{0836B73E-C360-421E-8B32-F1F42AFB08A1}"
+          DTS:DTSID="{5B6E94FA-89F8-4068-9C62-C56F2BEE4518}"
+          DTS:ObjectName="{5B6E94FA-89F8-4068-9C62-C56F2BEE4518}"
           DTS:ValueIndex="9"
           DTS:VariableName="User::ChildPackageMaxRows" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{B44EB996-4B46-41FB-B64D-7FDAFCA6C596}"
+          DTS:ObjectName="{B44EB996-4B46-41FB-B64D-7FDAFCA6C596}"
+          DTS:ValueIndex="10"
+          DTS:VariableName="User::ChildPackageBatchSize" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{78269DB5-B991-4FF6-9F8B-1180960C37B2}"
+          DTS:ObjectName="{78269DB5-B991-4FF6-9F8B-1180960C37B2}"
+          DTS:ValueIndex="11"
+          DTS:VariableName="User::ChildPackageMaxCommitRows" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{BB70CB69-7945-48D0-9179-5E869FB0A945}"
+          DTS:ObjectName="{BB70CB69-7945-48D0-9179-5E869FB0A945}"
+          DTS:ValueIndex="12"
+          DTS:VariableName="User::ChildPackageBIMLBatch" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{23E93BBD-C580-43D0-AA63-5097DC945B61}"
+          DTS:ObjectName="{23E93BBD-C580-43D0-AA63-5097DC945B61}"
+          DTS:ValueIndex="13"
+          DTS:VariableName="User::ChildPackageBatchLoad" />
       </DTS:ForEachVariableMappings>
     </DTS:Executable>
   </DTS:Executables>
@@ -750,34 +813,7 @@
             </SQLTask:SqlTaskData>
           </DTS:ObjectData>
         </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package.EventHandlers[OnError]\Package_OnError"
-          DTS:CreationName="Microsoft.ScriptTask"
-          DTS:Description="Script Task"
-          DTS:DTSID="{E43F22C4-4D4B-4C02-A889-5646A6470B26}"
-          DTS:ExecutableType="Microsoft.ScriptTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Package_OnError">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <ScriptProject
-              Name="ST_eee7c1d9fce941109350ce688bda29af"
-              VSTAMajorVersion="3"
-              VSTAMinorVersion="0"
-              Language="CSharp" />
-          </DTS:ObjectData>
-        </DTS:Executable>
       </DTS:Executables>
-      <DTS:PrecedenceConstraints>
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
-          DTS:CreationName=""
-          DTS:DTSID="{48A4F52D-DB93-4602-8CE1-A13FA6652515}"
-          DTS:From="Package.EventHandlers[OnError]\Package_OnError"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint"
-          DTS:To="Package.EventHandlers[OnError]\Log Error" />
-      </DTS:PrecedenceConstraints>
     </DTS:EventHandler>
     <DTS:EventHandler
       DTS:refId="Package.EventHandlers[OnInformation]"
@@ -1203,39 +1239,11 @@
     design-time-name="Package.EventHandlers[OnError]">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
           Size="125,42"
           Id="Package.EventHandlers[OnError]\Log Error"
           TopLeft="24,107.5" />
-        <NodeLayout
-          Size="162,42"
-          Id="Package.EventHandlers[OnError]\Package_OnError"
-          TopLeft="5.50000000000001,5.5" />
-        <EdgeLayout
-          Id="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
-          TopLeft="86.5,47.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </DtsEventHandler>

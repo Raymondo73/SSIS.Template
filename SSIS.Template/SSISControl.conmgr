@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
-  DTS:ObjectName="SSIS Control"
+  DTS:ObjectName="SSISControl"
   DTS:DTSID="{EDC308B5-6A9E-4516-9748-1B1B58BBD400}"
   DTS:CreationName="OLEDB">
   <DTS:ObjectData>

@@ -5,15 +5,16 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="Dev"
   DTS:CreatorName="DC"
-  DTS:DTSID="{A3BF624B-71B8-49CE-A835-9A4DEE7F3B5A}"
+  DTS:DTSID="{66218F3E-C3F6-4387-91A8-E4510B09223C}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.1000.169"
+  DTS:LastModifiedProductVersion="14.0.3006.16"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Master_Streams"
+  DTS:ObjectName="Master_Controller"
   DTS:PackageType="5"
-  DTS:VersionBuild="267"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="282"
   DTS:VersionComments="20110907"
-  DTS:VersionGUID="{5B2171C0-869A-48B1-A983-3E12E3E56218}">
+  DTS:VersionGUID="{31097145-F11B-4E36-9CC7-1F2F5FA7AF50}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -21,7 +22,7 @@
       DTS:CreationName=""
       DTS:DataType="3"
       DTS:Description="1 = Incremental, 2 = Full"
-      DTS:DTSID="{7C67087B-4828-4C7E-BCAD-3E7AF9072860}"
+      DTS:DTSID="{47EB4C16-8757-49D4-9B02-49EF595607D6}"
       DTS:ObjectName="ApplicationExecutionType"
       DTS:Required="True">
       <DTS:Property
@@ -31,30 +32,30 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:Description="Satuma_Control.etl.Applications"
-      DTS:DTSID="{DEB5F011-EDB9-4F7C-8BDF-52C85DBF1106}"
+      DTS:Description="SSISControl.cfg.Application"
+      DTS:DTSID="{A8F28AED-5D0E-4E32-A32D-CFCB28AD2FAE}"
       DTS:ObjectName="ApplicationName"
       DTS:Required="True">
       <DTS:Property
         DTS:DataType="8"
-        DTS:Name="ParameterValue">Satsuma Staging BPS</DTS:Property>
+        DTS:Name="ParameterValue">JNT Landing</DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="11"
       DTS:Description="Stop or continue after error encountered"
-      DTS:DTSID="{4BA9CA6E-A142-4408-8BC3-DA364CDFF73A}"
+      DTS:DTSID="{5C2B9F79-C7AA-49EE-8F5D-095A2B28BB3C}"
       DTS:ObjectName="StopOnFirstError"
       DTS:Required="True">
       <DTS:Property
         DTS:DataType="11"
-        DTS:Name="ParameterValue">0</DTS:Property>
+        DTS:Name="ParameterValue">-1</DTS:Property>
     </DTS:PackageParameter>
   </DTS:PackageParameters>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{97AAEE0C-6898-412C-AA21-9308D89B3716}"
+      DTS:DTSID="{AB3DCA15-0F12-4941-8F61-3E57C59640D3}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="AppInstanceID">
@@ -63,7 +64,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{2C822F98-C9E8-43CE-ACF6-081E1F27AAE9}"
+      DTS:DTSID="{32554035-1046-4541-A88F-0046D9EF6EAD}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::ApplicationExecutionType]"
       DTS:IncludeInDebugDump="2345"
@@ -74,18 +75,18 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{135668D1-B3C8-46DD-A738-9DC30E8CF329}"
+      DTS:DTSID="{8C498726-1F1E-4E64-A3DA-D0AD1573EA18}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::ApplicationName]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="ApplicationName">
       <DTS:VariableValue
-        DTS:DataType="8">Satsuma Staging BPS</DTS:VariableValue>
+        DTS:DataType="8">JNT Landing</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{F5B6D052-0193-411A-AD02-687CE0D6C885}"
+      DTS:DTSID="{4BD61B37-3478-4AF1-9ADC-F61294EC730D}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="Batches">
@@ -103,7 +104,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{582A7C88-C227-44D7-9943-61AB5DAFC9AA}"
+      DTS:DTSID="{01DE25D8-0C39-4ABA-88A9-9DB052CFB87F}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="Debug">
@@ -112,7 +113,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{7FC68D4C-BAF1-48D2-AFFE-A82F6AA2761F}"
+      DTS:DTSID="{98F5C204-8C2E-4C98-A4E5-2A6B2012A3B6}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="ExecutionBatch">
@@ -121,7 +122,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{8AD29304-C673-4347-897D-9118DE3F9EFD}"
+      DTS:DTSID="{86A37025-2EDA-4E5B-86D0-E37994E80257}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="LogPackageName">
@@ -131,7 +132,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{62472E5B-8E3D-44F7-A906-92141DAEB25E}"
+      DTS:DTSID="{F084D832-ED6E-453A-9021-92579D26C549}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="NoOfStreamsForBatch">
@@ -140,18 +141,18 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{21B0207A-B06D-4A22-87D3-5A47221C8C7B}"
+      DTS:DTSID="{3ACF510F-C1D4-4DB3-97DB-FAE46E20C703}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="(DT_STR,4,1252)@VersionMajor + &quot;.&quot; + (DT_STR,4,1252)@VersionMinor + &quot;.&quot; + (DT_STR,4,1252)@VersionBuild + &quot;.&quot; + @VersionComments"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="ParentVersion">
       <DTS:VariableValue
-        DTS:DataType="8">1.0.267.20110907</DTS:VariableValue>
+        DTS:DataType="8">1.0.282.20110907</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{3554C744-C283-4F51-9B51-014126C9F07D}"
+      DTS:DTSID="{79375AA3-3450-4A98-B73A-B81FEAE9AFBB}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="PkgInstanceID">
@@ -160,7 +161,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{56388C82-7E6D-4E10-9536-6EA147CB28C5}"
+      DTS:DTSID="{42C585A6-0F6B-48A7-AA70-CA8676A975B1}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="Stream1">
@@ -169,7 +170,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{7BB402B4-3F3E-437A-80D7-9A89DB8D8FC3}"
+      DTS:DTSID="{F199CEC4-9CAF-4BC6-9215-96A2B6608DFF}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="Stream2">
@@ -178,7 +179,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1AC51476-EF47-463E-A5A0-0A91DC3F9292}"
+      DTS:DTSID="{0747821A-C954-4C29-A51C-99DEE3C7548A}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="Stream3">
@@ -187,7 +188,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1891375A-B677-458F-8AC5-BC650A546B43}"
+      DTS:DTSID="{9DC07503-A204-4372-A084-4E4A98219524}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="Stream4">
@@ -197,115 +198,10 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Application Logging"
-      DTS:CreationName="STOCK:SEQUENCE"
-      DTS:Description="Sequence Container"
-      DTS:DTSID="{49940533-36F1-4710-BCE6-A3E3F942696A}"
-      DTS:ExecutableType="STOCK:SEQUENCE"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Application Logging">
-      <DTS:Variables />
-      <DTS:Executables>
-        <DTS:Executable
-          DTS:refId="Package\Application Logging\Log Start of Application"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{EA367222-2F6B-4A10-A474-43EE83F52A80}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Log Start of Application"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{EDC308B5-6A9E-4516-9748-1B1B58BBD400}"
-              SQLTask:SqlStatementSource="audit.Log_StartOfApplication ?"
-              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-              <SQLTask:ResultBinding
-                SQLTask:ResultName="0"
-                SQLTask:DtsVariableName="User::AppInstanceID" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="0"
-                SQLTask:DtsVariableName="User::ApplicationName"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="-1" />
-            </SQLTask:SqlTaskData>
-          </DTS:ObjectData>
-        </DTS:Executable>
-      </DTS:Executables>
-      <DTS:EventHandlers>
-        <DTS:EventHandler
-          DTS:refId="Package\Application Logging.EventHandlers[OnInformation]"
-          DTS:CreationName="OnInformation"
-          DTS:DTSID="{84330FDD-75FE-4DAA-AAEF-AF2603FE774B}"
-          DTS:EventID="0"
-          DTS:EventName="OnInformation"
-          DTS:LocaleID="-1">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:Description="The propagate property of the event"
-              DTS:DTSID="{C2B7D562-CB36-454F-BD72-DFFAAAB31CA2}"
-              DTS:IncludeInDebugDump="6789"
-              DTS:Namespace="System"
-              DTS:ObjectName="Propagate">
-              <DTS:VariableValue
-                DTS:DataType="11">-1</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\Application Logging.EventHandlers[OnInformation]\Log Event"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{FED4E352-27D1-4D74-A0FB-A743D7712816}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="Log Event"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-              <DTS:Variables />
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{EDC308B5-6A9E-4516-9748-1B1B58BBD400}"
-                  SQLTask:SqlStatementSource="audit.Log_Event ?,?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-                  <SQLTask:ParameterBinding
-                    SQLTask:ParameterName="3"
-                    SQLTask:DtsVariableName="System::ErrorDescription"
-                    SQLTask:ParameterDirection="Input"
-                    SQLTask:DataType="129"
-                    SQLTask:ParameterSize="-1" />
-                  <SQLTask:ParameterBinding
-                    SQLTask:ParameterName="2"
-                    SQLTask:DtsVariableName="System::SourceName"
-                    SQLTask:ParameterDirection="Input"
-                    SQLTask:DataType="129"
-                    SQLTask:ParameterSize="-1" />
-                  <SQLTask:ParameterBinding
-                    SQLTask:ParameterName="0"
-                    SQLTask:DtsVariableName="User::AppInstanceID"
-                    SQLTask:ParameterDirection="Input"
-                    SQLTask:DataType="3"
-                    SQLTask:ParameterSize="-1" />
-                  <SQLTask:ParameterBinding
-                    SQLTask:ParameterName="1"
-                    SQLTask:DtsVariableName="User::PkgInstanceID"
-                    SQLTask:ParameterDirection="Input"
-                    SQLTask:DataType="3"
-                    SQLTask:ParameterSize="-1" />
-                </SQLTask:SqlTaskData>
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-        </DTS:EventHandler>
-      </DTS:EventHandlers>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\Get SSIS Application Batches"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{B07D37E4-FBBC-481A-8AC3-E85351669173}"
+      DTS:DTSID="{993AD67D-6CB9-4768-8216-681CB18DE6A4}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Get SSIS Application Batches"
@@ -316,7 +212,7 @@
         <DTS:EventHandler
           DTS:refId="Package\Get SSIS Application Batches.EventHandlers[OnInformation]"
           DTS:CreationName="OnInformation"
-          DTS:DTSID="{C2FF9662-72C0-4F89-9F1F-D1F52D49FF89}"
+          DTS:DTSID="{B9D4FCAE-E914-4DC0-9861-20FBF1CC9496}"
           DTS:EventID="0"
           DTS:EventName="OnInformation"
           DTS:LocaleID="-1">
@@ -324,7 +220,7 @@
             <DTS:Variable
               DTS:CreationName=""
               DTS:Description="The propagate property of the event"
-              DTS:DTSID="{CB6532C8-167E-4227-B791-0E8080030C87}"
+              DTS:DTSID="{E82125D7-DF34-449D-B1CC-B89311AA1C5E}"
               DTS:IncludeInDebugDump="6789"
               DTS:Namespace="System"
               DTS:ObjectName="Propagate">
@@ -337,7 +233,7 @@
               DTS:refId="Package\Get SSIS Application Batches.EventHandlers[OnInformation]\Log Event"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
-              DTS:DTSID="{B5081E56-3154-4FDA-A8FF-FAAF46B794E4}"
+              DTS:DTSID="{546AC26F-FD11-403D-A0BF-880DFBF24C72}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="Log Event"
@@ -398,7 +294,7 @@
       DTS:refId="Package\Log Application Success"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{93523D58-EA60-4188-B3DC-F09300688913}"
+      DTS:DTSID="{427BDA11-2BEE-434E-AC0B-B352E2E9D460}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Log Application Success"
@@ -409,7 +305,7 @@
         <DTS:EventHandler
           DTS:refId="Package\Log Application Success.EventHandlers[OnInformation]"
           DTS:CreationName="OnInformation"
-          DTS:DTSID="{DBD63BAA-5B13-4007-94F0-530ED75198C8}"
+          DTS:DTSID="{0CC943A4-DC75-4D80-9E20-C0CEC5D45AA9}"
           DTS:EventID="0"
           DTS:EventName="OnInformation"
           DTS:LocaleID="-1">
@@ -417,7 +313,7 @@
             <DTS:Variable
               DTS:CreationName=""
               DTS:Description="The propagate property of the event"
-              DTS:DTSID="{FD6867B1-C83A-49C0-97B6-2614B0534175}"
+              DTS:DTSID="{2C96064D-36F6-4523-BE18-5E6B117C012A}"
               DTS:IncludeInDebugDump="6789"
               DTS:Namespace="System"
               DTS:ObjectName="Propagate">
@@ -430,7 +326,7 @@
               DTS:refId="Package\Log Application Success.EventHandlers[OnInformation]\Log Event"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
-              DTS:DTSID="{29750170-EE4F-4D8E-AEFC-24A0CBC1BF55}"
+              DTS:DTSID="{FC90D26F-8E5A-4C09-A06E-52C500019AD5}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="Log Event"
@@ -484,17 +380,109 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Log Start of Application"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E7DB4169-16C9-4483-8753-8703AFAC820F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Log Start of Application"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Log Start of Application.EventHandlers[OnInformation]"
+          DTS:CreationName="OnInformation"
+          DTS:DTSID="{29D25DA4-C51D-4502-BC47-F2DBD83DC135}"
+          DTS:EventID="0"
+          DTS:EventName="OnInformation"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{3E52CDCA-AC95-4C91-9FB1-52215C32D28B}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Log Start of Application.EventHandlers[OnInformation]\Log Event"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{7BEDE1F7-5E6B-428F-91B9-BB10BABB6260}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Log Event"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{EDC308B5-6A9E-4516-9748-1B1B58BBD400}"
+                  SQLTask:SqlStatementSource="audit.Log_Event ?,?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="3"
+                    SQLTask:DtsVariableName="System::ErrorDescription"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="2"
+                    SQLTask:DtsVariableName="System::SourceName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::AppInstanceID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::PkgInstanceID"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{EDC308B5-6A9E-4516-9748-1B1B58BBD400}"
+          SQLTask:SqlStatementSource="audit.Log_StartOfApplication ?"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::AppInstanceID" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::ApplicationName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Loop through all SSIS Application Batches"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
-      DTS:DTSID="{527BAFB8-4716-41CF-B7F2-1F47070CEEBF}"
+      DTS:DTSID="{1741B098-162D-4048-B793-C8E54A1AEB6B}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
-      DTS:MaxErrorCount="500000"
       DTS:ObjectName="Loop through all SSIS Application Batches">
       <DTS:ForEachEnumerator
         DTS:CreationName="Microsoft.ForEachADOEnumerator"
-        DTS:DTSID="{9D852898-5CE3-4145-B154-83A7ACBE2EAC}"
+        DTS:DTSID="{A926B38B-AE7D-47B9-BF9C-D757F51F6328}"
         DTS:ObjectName="{07FCBCC6-7CE9-42E0-8CB6-31AC9AE11160}">
         <DTS:ObjectData>
           <FEEADO
@@ -510,7 +498,7 @@
           DTS:refId="Package\Loop through all SSIS Application Batches\Get Number Of Streams For Batch"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{C2870B30-169D-4444-B0A5-A21EA1A7EED4}"
+          DTS:DTSID="{F5A962B7-3E24-489F-93EA-632896F5522F}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Get Number Of Streams For Batch"
@@ -544,7 +532,7 @@
           DTS:refId="Package\Loop through all SSIS Application Batches\Stream 1"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{3EA80A67-4811-48CE-B8E0-8AFA83F1101A}"
+          DTS:DTSID="{607B4009-A6E5-439B-AF9B-50597F7C7DF2}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Stream 1"
@@ -555,7 +543,7 @@
               <UseProjectReference>True</UseProjectReference>
               <PackageName>Master_ProjectPackage.dtsx</PackageName>
               <ParameterAssignment>
-                <ParameterName>AppInstanceID</ParameterName>
+                <ParameterName>ApplicationInstanceId</ParameterName>
                 <BindedVariableOrParameterName>User::AppInstanceID</BindedVariableOrParameterName>
               </ParameterAssignment>
               <ParameterAssignment>
@@ -585,7 +573,7 @@
           DTS:refId="Package\Loop through all SSIS Application Batches\Stream 2"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{430E79FA-D9F3-410A-BC92-F6F6F9AFA577}"
+          DTS:DTSID="{BDE2764D-ED00-4C9F-B81C-770CB4C787C6}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Stream 2"
@@ -596,7 +584,7 @@
               <UseProjectReference>True</UseProjectReference>
               <PackageName>Master_ProjectPackage.dtsx</PackageName>
               <ParameterAssignment>
-                <ParameterName>AppInstanceID</ParameterName>
+                <ParameterName>ApplicationInstanceId</ParameterName>
                 <BindedVariableOrParameterName>User::AppInstanceID</BindedVariableOrParameterName>
               </ParameterAssignment>
               <ParameterAssignment>
@@ -626,7 +614,7 @@
           DTS:refId="Package\Loop through all SSIS Application Batches\Stream 3"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{2020D0DC-BBAE-49DD-B743-6729DE2893F6}"
+          DTS:DTSID="{7F843A83-CEC5-4935-A8A0-0D851F07DEC7}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Stream 3"
@@ -637,7 +625,7 @@
               <UseProjectReference>True</UseProjectReference>
               <PackageName>Master_ProjectPackage.dtsx</PackageName>
               <ParameterAssignment>
-                <ParameterName>AppInstanceID</ParameterName>
+                <ParameterName>ApplicationInstanceId</ParameterName>
                 <BindedVariableOrParameterName>User::AppInstanceID</BindedVariableOrParameterName>
               </ParameterAssignment>
               <ParameterAssignment>
@@ -667,7 +655,7 @@
           DTS:refId="Package\Loop through all SSIS Application Batches\Stream 4"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{48DE0876-7792-40AE-B273-D62E3B47D87A}"
+          DTS:DTSID="{BAF1E530-7943-4335-BC7C-ECC43246D6DA}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Stream 4"
@@ -678,7 +666,7 @@
               <UseProjectReference>True</UseProjectReference>
               <PackageName>Master_ProjectPackage.dtsx</PackageName>
               <ParameterAssignment>
-                <ParameterName>AppInstanceID</ParameterName>
+                <ParameterName>ApplicationInstanceId</ParameterName>
                 <BindedVariableOrParameterName>User::AppInstanceID</BindedVariableOrParameterName>
               </ParameterAssignment>
               <ParameterAssignment>
@@ -709,7 +697,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Loop through all SSIS Application Batches.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{95D7BF9A-6A77-4F38-85CF-6E69CFF1F0CC}"
+          DTS:DTSID="{62DFEC86-AC80-41FE-8A48-A583E42FA7EE}"
           DTS:From="Package\Loop through all SSIS Application Batches\Get Number Of Streams For Batch"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -717,7 +705,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Loop through all SSIS Application Batches.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
-          DTS:DTSID="{BFDB0413-38D7-4B22-9127-6179246104CB}"
+          DTS:DTSID="{0314A966-ECF7-4C51-A15A-E59BE216C0CA}"
           DTS:EvalOp="3"
           DTS:Expression="@NoOfStreamsForBatch&gt;=2"
           DTS:From="Package\Loop through all SSIS Application Batches\Get Number Of Streams For Batch"
@@ -727,7 +715,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Loop through all SSIS Application Batches.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
-          DTS:DTSID="{D06FC112-FCDD-42DF-B1F9-54AFD94D8C03}"
+          DTS:DTSID="{E2F8FC91-30F9-44CC-9613-1D99D813DA6C}"
           DTS:EvalOp="3"
           DTS:Expression="@NoOfStreamsForBatch&gt;=3"
           DTS:From="Package\Loop through all SSIS Application Batches\Get Number Of Streams For Batch"
@@ -737,7 +725,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Loop through all SSIS Application Batches.PrecedenceConstraints[Constraint 3]"
           DTS:CreationName=""
-          DTS:DTSID="{ABD41A62-05A7-4786-9855-E4AB3DF98DA2}"
+          DTS:DTSID="{2A092587-5002-42DE-9667-9101FAC25B58}"
           DTS:EvalOp="3"
           DTS:Expression="@NoOfStreamsForBatch&gt;=4"
           DTS:From="Package\Loop through all SSIS Application Batches\Get Number Of Streams For Batch"
@@ -748,8 +736,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{5592E196-6D1B-4A8D-ADAC-A1B968F26F3D}"
-          DTS:ObjectName="{5592E196-6D1B-4A8D-ADAC-A1B968F26F3D}"
+          DTS:DTSID="{9F2397F8-52C2-4882-A714-401972AE096C}"
+          DTS:ObjectName="{9F2397F8-52C2-4882-A714-401972AE096C}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::ExecutionBatch" />
       </DTS:ForEachVariableMappings>
@@ -759,15 +747,15 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{02340C9B-B942-4006-AC0D-4061CD10DA77}"
-      DTS:From="Package\Application Logging"
+      DTS:DTSID="{D812DF31-EE70-4ED0-91B1-C055AD3EA6FD}"
+      DTS:From="Package\Log Start of Application"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\Get SSIS Application Batches" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{930CD8FC-AFE5-4652-8088-5E8640C59C6E}"
+      DTS:DTSID="{22C597A1-64C4-4EDD-AEDA-E44DA4BA260D}"
       DTS:From="Package\Get SSIS Application Batches"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -775,7 +763,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{EA37CEDF-681E-4FE1-85AB-119105050E78}"
+      DTS:DTSID="{CA1D14FF-4879-4ED0-9D30-C90F648AE71F}"
       DTS:From="Package\Loop through all SSIS Application Batches"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -785,7 +773,7 @@
     <DTS:EventHandler
       DTS:refId="Package.EventHandlers[OnError]"
       DTS:CreationName="OnError"
-      DTS:DTSID="{5F3A8052-7F84-4029-A549-A943E5DDCF7B}"
+      DTS:DTSID="{AF57E3D5-4D5B-4BE6-96C3-86ADDFC9BC46}"
       DTS:EventID="0"
       DTS:EventName="OnError"
       DTS:LocaleID="-1">
@@ -793,7 +781,7 @@
         <DTS:Variable
           DTS:CreationName=""
           DTS:Description="The propagate property of the event"
-          DTS:DTSID="{35512D21-E3D0-4A58-91E3-BB7F58A4E9C0}"
+          DTS:DTSID="{FED20C63-A5A4-4FDC-AC50-79743CBA8619}"
           DTS:IncludeInDebugDump="6789"
           DTS:Namespace="System"
           DTS:ObjectName="Propagate">
@@ -806,7 +794,7 @@
           DTS:refId="Package.EventHandlers[OnError]\Log Application Error"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{2B82FEF4-21BA-460F-AF7E-9A424AA889BF}"
+          DTS:DTSID="{9DEAAD4D-2208-4940-A07E-20DA6DE0B276}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Log Application Error"
@@ -829,7 +817,7 @@
           DTS:refId="Package.EventHandlers[OnError]\Log Error"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{AB786ABC-BBE4-42DC-ADD7-84DEBD65703E}"
+          DTS:DTSID="{162E6707-4ADD-4ACF-9A2C-524FD2D5CC0F}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Log Error"
@@ -870,17 +858,17 @@
           DTS:refId="Package.EventHandlers[OnError]\Package_OnError"
           DTS:CreationName="Microsoft.ScriptTask"
           DTS:Description="Script Task"
-          DTS:DTSID="{DD8DA67F-2957-412D-B9B1-225EDC7A7461}"
+          DTS:DTSID="{6CFF0181-6363-4297-9087-49C3A20ED02A}"
           DTS:ExecutableType="Microsoft.ScriptTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Package_OnError">
           <DTS:Variables />
           <DTS:ObjectData>
             <ScriptProject
-              Name="ST_70c225f6708146bf99ebd5d8e6b5d49b"
+              Name="ST_42e91dfdf04f49b4be5f833efbd618a2"
               VSTAMajorVersion="3"
               VSTAMinorVersion="0"
-              Language="CSharp" />
+              Language="VisualBasic" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -888,7 +876,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{59986816-4880-4F36-8A70-756DFCBD6578}"
+          DTS:DTSID="{E36D324E-9325-4575-8C0C-F8A4E274E105}"
           DTS:From="Package.EventHandlers[OnError]\Package_OnError"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -896,7 +884,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
-          DTS:DTSID="{E4C3D5B7-69A0-4ACE-8212-19179E5D3A9D}"
+          DTS:DTSID="{1D7C96E6-948B-45E6-AA54-9B940708AAFC}"
           DTS:From="Package.EventHandlers[OnError]\Log Error"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
@@ -915,26 +903,19 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="191,42"
-          Id="Package\Application Logging\Log Start of Application"
-          TopLeft="5.5,13.5" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="200,73"
-          Size="200,116"
-          Id="Package\Application Logging"
-          TopLeft="251.5,168.5" />
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="217,42"
           Id="Package\Get SSIS Application Batches"
-          TopLeft="246,322.5" />
+          TopLeft="262,179" />
         <NodeLayout
           Size="193,42"
           Id="Package\Log Application Success"
-          TopLeft="256,646.5" />
+          TopLeft="269,535" />
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Log Start of Application"
+          TopLeft="271.5,102.5" />
         <NodeLayout
           Size="242,42"
           Id="Package\Loop through all SSIS Application Batches\Get Number Of Streams For Batch"
@@ -954,7 +935,7 @@
         <NodeLayout
           Size="124,42"
           Id="Package\Loop through all SSIS Application Batches\Stream 4"
-          TopLeft="554.5,107.5" />
+          TopLeft="554.5,106.5" />
         <EdgeLayout
           Id="Package\Loop through all SSIS Application Batches.PrecedenceConstraints[Constraint]"
           TopLeft="269.3,47.4999999999999">
@@ -1067,57 +1048,57 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="206.8,60.0000000000001"
+              EndConnector="206.8,59.0000000000001"
               Start="0,0"
-              End="206.8,52.5000000000001">
+              End="206.8,51.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.7415599534342" />
+                    End="0,13.4458672875437" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,13.7415599534342"
-                    Point2="0,17.7415599534342"
-                    Point3="4,17.7415599534342" />
+                    Point1="0,13.4458672875437"
+                    Point2="0,17.4458672875437"
+                    Point3="4,17.4458672875437" />
                   <mssgle:LineSegment
-                    End="202.8,17.7415599534342" />
+                    End="202.8,17.4458672875437" />
                   <mssgle:CubicBezierSegment
-                    Point1="202.8,17.7415599534342"
-                    Point2="206.8,17.7415599534342"
-                    Point3="206.8,21.7415599534342" />
+                    Point1="202.8,17.4458672875437"
+                    Point2="206.8,17.4458672875437"
+                    Point3="206.8,21.4458672875437" />
                   <mssgle:LineSegment
-                    End="206.8,52.5000000000001" />
+                    End="206.8,51.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="95.4,22.7415599534342,16,16"
+              BoundingBox="95.4,22.4458672875437,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="682,163"
-          Size="682,206"
+          PanelSize="682,204.5"
+          Size="682,247.5"
           Id="Package\Loop through all SSIS Application Batches"
-          TopLeft="9.50000000000006,401.5" />
+          TopLeft="25.5000000000001,258" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="353,284.5">
+          TopLeft="368.75,144.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,38"
+              EndConnector="0,34.5"
               Start="0,0"
-              End="0,30.5">
+              End="0,27">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.5" />
+                    End="0,27" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1128,7 +1109,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="352.5,364.5">
+          TopLeft="368.5,221">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1150,18 +1131,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="351.5,607.5">
+          TopLeft="366,505.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39"
+              EndConnector="0,29.5"
               Start="0,0"
-              End="0,31.5">
+              End="0,22">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.5" />
+                    End="0,22" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1177,7 +1158,7 @@
     design-time-name="Package.EventHandlers[OnError]">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="179,42"
           Id="Package.EventHandlers[OnError]\Log Application Error"
@@ -1209,9 +1190,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1233,23 +1212,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
-  <DtsEventHandler
-    design-time-name="Package\Application Logging.EventHandlers[OnInformation]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="126,42"
-          Id="Package\Application Logging.EventHandlers[OnInformation]\Log Event"
-          TopLeft="78,33" />
       </GraphLayout>
     </LayoutInfo>
   </DtsEventHandler>
@@ -1274,6 +1239,18 @@
           Size="126,42"
           Id="Package\Log Application Success.EventHandlers[OnInformation]\Log Event"
           TopLeft="48,22" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\Log Start of Application.EventHandlers[OnInformation]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="126,42"
+          Id="Package\Log Start of Application.EventHandlers[OnInformation]\Log Event"
+          TopLeft="60,60" />
       </GraphLayout>
     </LayoutInfo>
   </DtsEventHandler>
