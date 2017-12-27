@@ -1,7 +1,8 @@
 ﻿/*
 User query to obtain list of tables from the server
 
-SELECT	'SELECT ' + DB_NAME() + ' AS DatabaseName, ' + s.[name] + ' ' + ' AS SchemaName, ' +  t.[name] + ' ' + ' AS TableName , @PjectID AS ProjectID, 0 AS LargeTable'
+SELECT	'SELECT ' + QUOTENAME(DB_NAME(),'''') + ' AS DatabaseName, ' + QUOTENAME(s.[name], '''') 
+		+ ' ' + ' AS SchemaName, ' +  QUOTENAME(t.[name], '''') + ' ' + ' AS TableName , @PjectID AS ProjectID, 0 AS LargeTable'
 FROM	sys.tables		t
 JOIN	sys.schemas		s	ON s.schema_id	= t.schema_id
 --JOIN	sys.triggers	tr	ON tr.parent_id	= t.object_id
