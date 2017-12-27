@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [cfg].[Add_SSISPackage]
 	@PackageName			VARCHAR (255)
-,	@SourceTable			VARCHAR (255)
+,	@SourceTable			VARCHAR (MAX)
 ,	@LandingTable			VARCHAR (255)
 ,	@DestinationTable		VARCHAR (255)
 ,	@SelectProcedure		VARCHAR (255)

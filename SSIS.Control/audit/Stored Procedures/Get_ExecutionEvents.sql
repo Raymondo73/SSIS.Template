@@ -1,4 +1,4 @@
-﻿CREATE PROC [audit].[Get_ExecutionErrors] 
+﻿CREATE PROC [audit].[Get_ExecutionEvents] 
 	@AppInstanceId INT 
 
 AS
@@ -7,11 +7,11 @@ BEGIN TRY
 	
 	SELECT		pk.PackageName
 	,			ev.* 
-	FROM		[audit].SSISErrors		ev
+	FROM		[audit].SSISEvents		ev
 	JOIN		[audit].SSISPkgInstance	pi ON ev.PkgInstanceID	= pi.PkgInstanceID
 	JOIN		cfg.packages			pk ON pk.PackageID		= pi.PackageID
 	WHERE		ev.AppInstanceID = @AppInstanceId
-	ORDER BY	ev.ErrorDateTime;
+	ORDER BY	ev.EventDateTime;
 
 END TRY
 

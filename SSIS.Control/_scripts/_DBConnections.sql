@@ -66,4 +66,5 @@ VALUES		(	s.ConnectionName
 			,	s.ProjectID
 			)
 WHEN NOT MATCHED BY SOURCE
+AND DBConnectionID = @PID
 THEN DELETE;

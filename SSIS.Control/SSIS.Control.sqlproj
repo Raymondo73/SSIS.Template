@@ -138,4 +138,9 @@
   <ItemGroup>
     <RefactorLog Include="SSIS.Control.refactorlog" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="audit\Stored Procedures\Get_ExecutionEvents.sql" />
+    <Build Include="audit\Stored Procedures\Get_ExecutionEventsByPackage.sql" />
+    <Build Include="audit\Stored Procedures\Get_ExecutionErrorsByPackage.sql" />
+  </ItemGroup>
 </Project>

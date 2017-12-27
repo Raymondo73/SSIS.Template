@@ -1,13 +1,11 @@
 ﻿/*
 User query to obtain list of tables from the server
 
-SELECT	DB_NAME()		AS DatabaseName
-,		s.[name]		AS SchemaName
-,		t.[name]		AS TableName
+SELECT	'SELECT ' + DB_NAME() + ' AS DatabaseName, ' + s.[name] + ' ' + ' AS SchemaName, ' +  t.[name] + ' ' + ' AS TableName , @PjectID AS ProjectID, 0 AS LargeTable'
 FROM	sys.tables		t
 JOIN	sys.schemas		s	ON s.schema_id	= t.schema_id
-JOIN	sys.triggers	tr	ON tr.parent_id	= t.object_id
-WHERE	s.[name] = 'dbo'
+--JOIN	sys.triggers	tr	ON tr.parent_id	= t.object_id
+WHERE	s.[name] = 'cfg'
 
 Above example also returns dbo tables with triggers.  Adjust as seen fit
 Repeat merge below for each project

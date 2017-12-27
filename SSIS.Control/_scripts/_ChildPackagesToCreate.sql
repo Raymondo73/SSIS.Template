@@ -17,12 +17,12 @@ DECLARE @PrjName			VARCHAR(200)
 ,		@Schema				VARCHAR(200)
 ,		@Table				VARCHAR(200)
 ,		@TableID			INT
-,		@MaxRows			INT				= 100000
-,		@BufferSize			INT				= 60485760
+,		@MaxRows			INT				= 100000		-- 100k rows
+,		@BufferSize			INT				= 60485760		-- 60MB
 ,		@BatchSize			INT				= 10000
-,		@MaxInsertCommit	INT				= 0;
+,		@MaxInsertCommit	INT				= 0
+,		@ProjectCount		INT				= 1;
 
--- JNT Landing ////////////////////////////////////////////////////
 
 /*
 Helper for add_SSISPackage
@@ -34,56 +34,63 @@ Helper for add_SSISPackage
 ,	@MergeProcedure		VARCHAR (255)
 */
 
-SET @PrjName = 'JNT Landing';
-
-SELECT	@ProjectId = ProjectId
-FROM	cfg.Projects
-WHERE	ProjectName = @PrjName;
-
--- add child packages with execution order and streams
-SELECT	TOP 1	@Schema		= SchemaName
-,				@Table		= TableName
-,				@TableID	= TableId
-FROM			cfg.SourceTables
-WHERE			ProjectID = @ProjectId
-ORDER BY		TableId;
+SELECT TOP 1	@ProjectId = ProjectId
+FROM			cfg.Projects
+ORDER BY		ProjectId;
 
 
-WHILE @RowCount != 0
+WHILE @ProjectCount != 0
 BEGIN
 
-	SELECT	@PackageName		= @Schema + '_' + @Table + '.dtsx'
-	,		@SourceTable		= @Schema + '.' + @Table
-	,		@LandingTable		= 'work.' + @Table
-	,		@DestinationTable	= 'Landing.' + @Table
-	,		@SelectProc			= 'ssis.Select_' + @Schema + @Table + '_ByCTID'		-- NB schema and proc needs to exist on source db or create sql in data flow source i.e. change this
-	,		@MergeProc			= 'work.Merge' + '_' + @Table;
-
-	/*
-	TODO
-	Work out a way to:
-		Streams on ProjectPackage
-		Buffer and MaxRows on Project
-	*/
-
-	SET @ExecutionOrder += 10;
-	EXEC @PackageId = cfg.Add_SSISPackage @PackageName, @SourceTable, @LandingTable, @DestinationTable, @SelectProc, @MergeProc, @MaxRows, @BufferSize, @BatchSize, @MaxInsertCommit;	
-	EXEC cfg.Add_SSISProjectPackage @ProjectId, @PackageId, @ExecutionOrder, 'I', 'F', 1;		-- NB adjust streams post load when parallel v serial is known
-
+	-- add child packages with execution order and streams
 	SELECT	TOP 1	@Schema		= SchemaName
 	,				@Table		= TableName
 	,				@TableID	= TableId
 	FROM			cfg.SourceTables
-	WHERE			ProjectID	= @ProjectId
-	AND				TableId		> @TableID
+	WHERE			ProjectID = @ProjectId
 	ORDER BY		TableId;
 
-	SET @RowCount = @@ROWCOUNT;
+	WHILE @RowCount != 0
+	BEGIN
 
-END
+		SELECT	@PackageName		= @Schema + '_' + @Table + '.dtsx'
+		,		@SourceTable		= @Schema + '.' + @Table
+		,		@LandingTable		= 'work.' + @Table
+		,		@DestinationTable	= 'Landing.' + @Table
+		,		@SelectProc			= 'ssis.Select_' + @Schema + @Table + '_ByCTID'		-- NB schema and proc needs to exist on source db or create sql in data flow source i.e. change this
+		,		@MergeProc			= 'work.Merge' + '_' + @Table;
 
--- reset
-SELECT	@RowCount	= 1
-,		@ProjectId	= 0
-,		@PrjName	= '';
--- /// JNT Landing End ////////////////////////////////////////////////////////////////////////////////
+		/*
+		TODO
+		Work "Maybe" out a way to:
+			Streams on ProjectPackage
+			Buffer and MaxRows on Project
+		*/
+		SET @ExecutionOrder += 10;
+		EXEC @PackageId = cfg.Add_SSISPackage @PackageName, @SourceTable, @LandingTable, @DestinationTable, @SelectProc, @MergeProc, @MaxRows, @BufferSize, @BatchSize, @MaxInsertCommit;	
+		EXEC cfg.Add_SSISProjectPackage @ProjectId, @PackageId, @ExecutionOrder, 'I', 'F', 1;		-- NB adjust streams post load when parallel v serial is known
+
+		SELECT	TOP 1	@Schema		= SchemaName
+		,				@Table		= TableName
+		,				@TableID	= TableId
+		FROM			cfg.SourceTables
+		WHERE			ProjectID	= @ProjectId
+		AND				TableId		> @TableID
+		ORDER BY		TableId;
+
+		SET @RowCount = @@ROWCOUNT;
+
+	END -- end setting up a package (loop)
+
+	-- reset
+	SELECT	@RowCount		= 1
+	,		@PrjName		= ''
+	,		@ProjectCount	= 1;
+
+	SELECT	TOP 1	@ProjectId = ProjectId
+	FROM			cfg.Projects
+	WHERE			ProjectId > @ProjectId
+	ORDER BY		ProjectId;
+
+	SET @ProjectCount = @@ROWCOUNT;
+END -- end setting up a project (loop)
