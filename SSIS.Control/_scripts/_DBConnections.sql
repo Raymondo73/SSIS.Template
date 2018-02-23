@@ -14,28 +14,46 @@ DECLARE @Connections TABLE
 ,		PRIMARY KEY CLUSTERED (DBConnectionID ASC)                     
 )
 
-DECLARE @PID INT;
+DECLARE @ProID			INT
+,		@ProjCount		INT = 1
+,		@SrcDB			VARCHAR(100)
+,		@LandDB			VARCHAR(100);
 
--- /// JNT Landing /////////////////////////////////////////////////////////////
-SELECT	@PID = ProjectID
-FROM	cfg.Projects
-WHERE	ProjectName = 'JNT Landing';
+SELECT TOP 1	@ProId		= ProjectId
+,				@SrcDB		= DatabaseName
+,				@LandDB		= LandingDatabaseName
+FROM			cfg.SourceTables
+ORDER BY		ProjectId;
 
-INSERT	@Connections
-VALUES	(N'SSISControl', N'LocalHost', N'SSISControl', N'SQLNCLI11.1', 0, 0, 1, @PID)
-,		(N'Source', N'LocalHost', N'JNTDatabase', N'SQLNCLI11.1', 0, 0, 0, @PID)
-,		(N'Destination', N'LocalHost', N'JNTLanding', N'SQLNCLI11.1', 0, 0, 0, @PID);
--- /// JNT Landing /////////////////////////////////////////////////////////////
+WHILE @ProjCount != 0
+BEGIN
 
+	INSERT	@Connections
+	VALUES	(N'SSISControl', N'LocalHost', N'SSISControl', N'SQLNCLI11.1', 0, 0, 1, @ProID)
+	,		(N'Source', N'LocalHost', @SrcDB, N'SQLNCLI11.1', 0, 0, 0, @ProID)
+	,		(N'Destination', N'LocalHost', @LandDB, N'SQLNCLI11.1', 0, 0, 0, @ProID);
 
+	SELECT TOP 1	@ProId		= ProjectId
+	,				@SrcDB		= DatabaseName
+,					@LandDB		= LandingDatabaseName
+	FROM			cfg.SourceTables
+	WHERE			ProjectId			> @ProjectId
+	AND				DatabaseName		!=	@SrcDB
+	AND				LandingDatabaseName	!= @LandDB
+	ORDER BY		ProjectId;
+
+	SET @ProjCount = @@ROWCOUNT;
+
+END
 
 MERGE	cfg.DBConnection	AS t
 USING	(
-			SELECT		TOP 100 PERCENT *
-			FROM		@Connections
-			ORDER BY	DBConnectionID
+		SELECT		TOP 100 PERCENT *
+		FROM		@Connections
+		ORDER BY	DBConnectionID
 		)	AS s
-ON		s.DBConnectionID		= t.DBConnectionID
+ON		s.DBConnectionID	= t.DBConnectionID
+AND		s.ProjectID			= t.ProjectID	
 WHEN MATCHED	
 THEN UPDATE
 SET		t.ConnectionName	= s.ConnectionName
@@ -66,5 +84,4 @@ VALUES		(	s.ConnectionName
 			,	s.ProjectID
 			)
 WHEN NOT MATCHED BY SOURCE
-AND DBConnectionID = @PID
 THEN DELETE;

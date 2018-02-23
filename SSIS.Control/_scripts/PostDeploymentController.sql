@@ -11,6 +11,6 @@ Post-Deployment Script Template
 */
 
 :r .\_CreateAppAndProject.sql
-:r .\_SourceTables.sql
+:r .\_SourceTables_JNT.sql
 :r .\_ChildPackagesToCreate.sql
 :r .\_DBConnections.sql
