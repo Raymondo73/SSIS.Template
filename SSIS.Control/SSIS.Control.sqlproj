@@ -72,7 +72,6 @@
     <Folder Include="_publish" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="_scripts\_SourceTables.sql" />
     <PostDeploy Include="_scripts\PostDeploymentController.sql" />
     <Build Include="cfg\Tables\ApplicationProjects.sql" />
     <Build Include="cfg\Tables\Applications.sql" />
@@ -142,5 +141,6 @@
     <Build Include="audit\Stored Procedures\Get_ExecutionEvents.sql" />
     <Build Include="audit\Stored Procedures\Get_ExecutionEventsByPackage.sql" />
     <Build Include="audit\Stored Procedures\Get_ExecutionErrorsByPackage.sql" />
+    <None Include="_scripts\_SourceTables_JNT.sql" />
   </ItemGroup>
 </Project>
