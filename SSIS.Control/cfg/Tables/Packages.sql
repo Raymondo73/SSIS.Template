@@ -6,6 +6,7 @@
 	[LandingTable] [varchar](255) NULL,
 	[DestinationTable] [varchar](255) NULL,
 	[SelectProcedure] [varchar](MAX) NULL,
+	[ChangeTrackingProcedure] [varchar](255) NULL,
 	[MergeProcedure] [varchar](255) NULL,
     [DefaultBufferMaxRows] INT NULL DEFAULT(10000), 
     [DefaultBufferSize] INT NULL DEFAULT(10485760), 

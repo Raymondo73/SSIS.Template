@@ -8,12 +8,13 @@ DECLARE @PrjName			VARCHAR(200)
 ,		@PackageId			INT				= 0
 ,		@ExecutionOrder		INT				= 0
 ,		@RowCount			SMALLINT		= 1
-,		@PackageName		VARCHAR(200)
-,		@SourceTable		VARCHAR(200)
-,		@LandingTable		VARCHAR(200)
-,		@DestinationTable	VARCHAR(200)
-,		@SelectProc			VARCHAR(200)
-,		@MergeProc			VARCHAR(200)
+,		@PackageName		VARCHAR(255)
+,		@SourceTable		VARCHAR(255)
+,		@LandingTable		VARCHAR(255)
+,		@DestinationTable	VARCHAR(255)
+,		@SelectProc			VARCHAR(MAX)
+,		@ChangeTrkProc		VARCHAR(255)
+,		@MergeProc			VARCHAR(255)
 ,		@Schema				VARCHAR(200)
 ,		@Table				VARCHAR(200)
 ,		@TableID			INT
@@ -58,7 +59,8 @@ BEGIN
 		,		@LandingTable		= 'work.' + @Table
 		,		@DestinationTable	= 'Landing.' + @Table
 		,		@SelectProc			= 'ssis.Select_' + @Schema + @Table + '_ByCTID'		-- NB schema and proc needs to exist on source db or create sql in data flow source i.e. change this
-		,		@MergeProc			= 'work.Merge' + '_' + @Table;
+		,		@MergeProc			= 'work.Merge' + '_' + @Table
+		,		@ChangeTrkProc		= 'ssis.Select_' + @Schema + @Table + '_ChangeTrackingPKRange';
 
 		/*
 		TODO
@@ -67,7 +69,18 @@ BEGIN
 			Buffer and MaxRows on Project
 		*/
 		SET @ExecutionOrder += 10;
-		EXEC @PackageId = cfg.Add_SSISPackage @PackageName, @SourceTable, @LandingTable, @DestinationTable, @SelectProc, @MergeProc, @MaxRows, @BufferSize, @BatchSize, @MaxInsertCommit;	
+		EXEC @PackageId = cfg.Add_SSISPackage		@PackageName
+												,	@SourceTable
+												,	@LandingTable
+												,	@DestinationTable
+												,	@SelectProc
+												,	@MergeProc
+												,	@ChangeTrkProc
+												,	@MaxRows
+												,	@BufferSize
+												,	@BatchSize
+												,	@MaxInsertCommit;	
+
 		EXEC cfg.Add_SSISProjectPackage @ProjectId, @PackageId, @ExecutionOrder, 'I', 'F', 1;		-- NB adjust streams post load when parallel v serial is known
 
 		SELECT	TOP 1	@Schema		= SchemaName
