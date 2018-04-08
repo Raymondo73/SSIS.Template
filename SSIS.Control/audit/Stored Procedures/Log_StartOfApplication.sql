@@ -29,7 +29,7 @@ BEGIN TRY
 				)
 	OUTPUT		inserted.AppInstanceID
 	VALUES		(	@AppID
-				,	GETDATE()
+				,	GETUTCDATE()
 				,	'Running'
 				);
 

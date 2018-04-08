@@ -31,7 +31,7 @@ BEGIN TRY
 	OUTPUT		inserted.PkgInstanceID
 	VALUES		(	@AppInstanceID
 				,	@PkgID
-				,	GETDATE()
+				,	GETUTCDATE()
 				,	'Running'
 				);
 END TRY

@@ -8,7 +8,7 @@ BEGIN TRY
 	SET NOCOUNT ON;
 
 	UPDATE	[audit].SSISPkgInstance
-	SET		EndDateTime		= GETDATE()
+	SET		EndDateTime		= GETUTCDATE()
 	,		[Status]		= 'Failed'
 	WHERE	PkgInstanceID	= @PkgInstanceID;
 

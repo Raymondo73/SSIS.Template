@@ -6,7 +6,7 @@ BEGIN TRY
 	SET NOCOUNT ON;
 
 	UPDATE	[audit].SSISAppInstance
-	SET		EndDateTime		= GETDATE()
+	SET		EndDateTime		= GETUTCDATE()
 	,		[STATUS]		= 'Failed'
 	WHERE	AppInstanceID	= @AppInstanceID;
 END TRY

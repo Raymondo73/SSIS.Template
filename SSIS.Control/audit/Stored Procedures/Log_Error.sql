@@ -19,7 +19,7 @@ BEGIN TRY
 				,	@PkgInstanceID 
 				,	@SourceName 
 				,	@ErrorDescription
-				,	GETDATE()
+				,	GETUTCDATE()
 				);
 END TRY
 

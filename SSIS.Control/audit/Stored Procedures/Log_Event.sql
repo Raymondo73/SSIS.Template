@@ -19,7 +19,7 @@ BEGIN TRY
 				,	@PkgInstanceID 
 				,	@SourceName 
 				,	@EventDescription
-				,	GETDATE()
+				,	GETUTCDATE()
 				);
 END TRY
 
